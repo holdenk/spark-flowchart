@@ -3,9 +3,9 @@ SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 set -ex
 git fetch origin
 git fetch oss
-git checkout origin/main
 cp -af ./ ../export-magic
 cd ../export-magic
+git checkout origin/main
 git branch -d prepare-export
 git checkout -b prepare-export
 git filter-repo --invert-paths --path private/ --force
