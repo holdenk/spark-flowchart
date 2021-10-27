@@ -4,11 +4,7 @@ For particularly large records you may find an executor out of memory exception
 
 
 You can get a Kyro serialization (for SQL) or Java serialization error (for RDD).
-{%
-  include-markdown "../../private/failure-executor-large-record.md"
-   start="<!-- start kyro -->"
-   end="<!-- end kyro -->"
-%}
+
 
 Some common causes of too big records are `groupByKey` in RDD land, `UDAFs` or list aggregations in Spark SQL, highly compressed or Sparse records without a sparse seriaization.
 
