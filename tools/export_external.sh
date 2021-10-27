@@ -28,4 +28,4 @@ rewrite = re.sub("\{\%.*\.\./\.\.\/private.*\%\}", "", blob.data.decode()).encod
 print(orig)
 print(rewrite)
 blob.data = rewrite'
-git push oss
+git push oss main
