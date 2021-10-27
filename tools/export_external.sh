@@ -1,10 +1,20 @@
 #!/bin/bash
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+WORK_DIR=$(mktemp -d)
+# deletes the temp directory
+function cleanup {
+  rm -rf "$WORK_DIR"
+  echo "Deleted temp working directory $WORK_DIR"
+}
+
+# register the cleanup function to be called on the EXIT signal
+trap cleanup EXIT
+
 set -ex
 git fetch origin
 git fetch oss
-cp -af ./ ../export-magic
-cd ../export-magic
+cp -af ./ "${WORK_DIR}"
+cd "${WORK_DIR}"
 git checkout origin/main
 git branch -d prepare-export || echo "ok cool no prepare export branch"
 git checkout -b prepare-export
@@ -18,3 +28,4 @@ rewrite = re.sub("\{\%.*\.\./\.\.\/private.*\%\}", "", blob.data.decode()).encod
 print(orig)
 print(rewrite)
 blob.data = rewrite'
+git push oss
