@@ -6,7 +6,7 @@ git fetch oss
 cp -af ./ ../export-magic
 cd ../export-magic
 git checkout origin/main
-git branch -d prepare-export
+git branch -d prepare-export || echo "ok cool no prepare export branch"
 git checkout -b prepare-export
 git filter-repo --invert-paths --path private/ --force
 # Note expressions doesn't seem to be working so we try two different things
