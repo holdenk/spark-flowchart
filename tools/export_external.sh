@@ -18,7 +18,7 @@ cd "${WORK_DIR}"
 git branch -d backup || echo "no backup branch"
 git checkout oss/main
 git checkout -b backup
-git push --force-with-lease oss
+git push --force-with-lease oss backup
 git checkout origin/main
 git branch -d prepare-export || echo "ok cool no prepare export branch"
 git checkout -b prepare-export
@@ -32,4 +32,4 @@ rewrite = re.sub("\{\%.*\.\./\.\.\/private.*\%\}", "", blob.data.decode()).encod
 print(orig)
 print(rewrite)
 blob.data = rewrite'
-git push oss main
+git push oss main --force-with-lease
