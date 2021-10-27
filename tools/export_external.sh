@@ -15,6 +15,10 @@ git fetch origin
 git fetch oss
 cp -af ./ "${WORK_DIR}"
 cd "${WORK_DIR}"
+git branch -d backup || echo "no backup branch"
+git checkout oss/main
+git checkout -b backup
+git push --force-with-lease oss
 git checkout origin/main
 git branch -d prepare-export || echo "ok cool no prepare export branch"
 git checkout -b prepare-export
