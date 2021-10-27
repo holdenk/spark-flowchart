@@ -1,0 +1,4 @@
+mkdocs-include-markdown-plugin
+mkdocs-mermaid2-plugin
+mkdocs
+git-filter-repo

@@ -1,0 +1,15 @@
+site_name: Spark Advanced Topics
+plugins:
+  - search
+  - mermaid2:
+      arguments:
+        securityLevel: 'loose'
+  - include-markdown
+
+markdown_extensions:
+  - pymdownx.superfences:
+      # make exceptions to highlighting of code:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
