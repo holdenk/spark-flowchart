@@ -20,7 +20,7 @@ private/
 	- All company specific notes
 
 tools/
-	- tools for building & handling the repo
+	- tools for building & handling integration with OSS export *requires OSS branch added as oss* (`git remote add oss git@github.com:holdenk/spark-flowchart.git`)
 	- import.sh
 		- try and pick up any external changes
 	- export_external.sh
