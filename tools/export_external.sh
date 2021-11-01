@@ -16,6 +16,7 @@ git fetch oss
 cp -af ./ "${WORK_DIR}"
 cd "${WORK_DIR}"
 git branch -d backup || echo "no backup branch"
+git push -d oss backup || echo "no remote backup branch to delete"
 git checkout oss/main
 git checkout -b backup
 git push --force-with-lease oss backup
