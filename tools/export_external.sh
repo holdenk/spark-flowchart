@@ -3,7 +3,7 @@ SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 WORK_DIR=$(mktemp -d)
 # deletes the temp directory
 function cleanup {
-  rm -rf "$WORK_DIR"
+#  rm -rf "$WORK_DIR"
   echo "Deleted temp working directory $WORK_DIR"
 }
 
@@ -17,9 +17,7 @@ cp -af ./ "${WORK_DIR}"
 cd "${WORK_DIR}"
 git branch -d backup || echo "no backup branch"
 git push -d oss backup || echo "no remote backup branch to delete"
-git checkout oss/main
-git checkout -b backup
-git push --force oss backup
+(git checkout oss/main && git checkout -b backup && git push --force oss backup) || echo "Nothing to backup."
 git checkout origin/main
 git branch -d prepare-export || echo "ok cool no prepare export branch"
 git checkout -b prepare-export
@@ -33,4 +31,4 @@ if not b"\0" in blob.data[0:8192]:
   orig = blob.data
   rewrite = re.sub("\{\%.*\.\./\.\.\/private.*\%\}", "", blob.data.decode()).encode()
   blob.data = rewrite'
-git push oss main --force-with-lease
+#git push oss main --force-with-lease
