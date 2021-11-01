@@ -3,7 +3,7 @@ SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 WORK_DIR=$(mktemp -d)
 # deletes the temp directory
 function cleanup {
-#  rm -rf "$WORK_DIR"
+  rm -rf "$WORK_DIR"
   echo "Deleted temp working directory $WORK_DIR"
 }
 
@@ -31,4 +31,4 @@ if not b"\0" in blob.data[0:8192]:
   orig = blob.data
   rewrite = re.sub("\{\%.*\.\./\.\.\/private.*\%\}", "", blob.data.decode()).encode()
   blob.data = rewrite'
-#git push oss main --force-with-lease
+git push oss main --force-with-lease
