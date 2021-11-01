@@ -25,11 +25,11 @@ git checkout -b prepare-export
 git filter-repo --invert-paths --path private/ --force
 # Note expressions doesn't seem to be working so we try two different things
 # git filter-repo --replace-text ${SCRIPT_DIR}/expressions.txt
-git filter-repo --blob-callback '
-import re
-orig = blob.data
-rewrite = re.sub("\{\%.*\.\./\.\.\/private.*\%\}", "", blob.data.decode()).encode()
-print(orig)
-print(rewrite)
-blob.data = rewrite'
+git filter-repo --refs HEAD --blob-callback '
+# Skip binary files
+if not b"\0" in blob.data[0:8192]:
+  import re
+  orig = blob.data
+  rewrite = re.sub("\{\%.*\.\./\.\.\/private.*\%\}", "", blob.data.decode()).encode()
+  blob.data = rewrite'
 git push oss main --force-with-lease
