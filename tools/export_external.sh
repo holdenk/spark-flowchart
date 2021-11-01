@@ -19,7 +19,7 @@ git branch -d backup || echo "no backup branch"
 git push -d oss backup || echo "no remote backup branch to delete"
 git checkout oss/main
 git checkout -b backup
-git push --force-with-lease oss backup
+git push --force oss backup
 git checkout origin/main
 git branch -d prepare-export || echo "ok cool no prepare export branch"
 git checkout -b prepare-export
