@@ -13,3 +13,6 @@ Everything which isn't inside the JVM is considered "overhead", so Tensorflow, P
 
 
 Python users can set `spark.executor.pyspark.memory` to limit the Python VM to a certain amount of memory. This amount of memory is then added to the overhead.
+
+
+Python users performing aggregations in Python should also [check out the PyUDFOOM page](../pyudfoom).

@@ -3,7 +3,6 @@
 Out of memory exceptions with Python user-defined-functions are especially likely as Spark doesn't do a good job of managing memory between the JVM and Python VM. Together this can result in [exceeding container memory limits](../container-oom).
 
 
-
 ## Grouped Map / Co-Grouped
 
 The `Grouped` & `Co-Grouped` UDFs are especially likely to cause out-of-memory exceptions in PySpark when combined with [key skew](key-skew).
