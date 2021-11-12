@@ -26,6 +26,7 @@ click ESPARSE "../../details/sparse-records" "Sparse records"
 click COLLECT "../../details/collect" "Collect and friends"
 click FILEERROR "../../details/invalid-file" "Invalid or missing files"
 click PARQUETBUTNOT "../../details/failed-to-read-non-parquet-file" "Failed to read non parquet file"
+CLICK EPYUDFOOM "../../details/pyudfoom"
 
 {%
   include-markdown "./shared.md"
