@@ -1,11 +1,11 @@
 # Regular Expression Tips
 
-Spark has `regexp_extract` and `regexp_replace` functions.
-They support regular expressions following [Java regex pattern].
+Spark function `regexp_extract` and `regexp_replace` can transform data using regular expressions.
+The regular expression pattern follows [Java regex pattern](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html).
 
-## Task Running Very Slow
+## Task Running Very Slowly
 
-Stack trace for the task shows:
+Stack trace shows:
 
 ```
 java.lang.Character.codePointAt(Character.java:4884)
@@ -41,6 +41,4 @@ You will need 4 backslashes to match any special character,
 
 ```
 df = spark.sql("SELECT regexp_replace('{{template}}', '\\\\{\\\\{', '#')")
-
 ```
-[Java regex pattern]: https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html
