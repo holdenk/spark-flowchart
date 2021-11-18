@@ -23,6 +23,7 @@ click BADPART "../../details/bad_partioning" "Slow stage with uneven partioning"
 click GOODPART_SLOW "../../details/even_partioning_still_slow" "Slow stage with even partioning"
 click UDFSLOWNESS "../../udfslow"
 click PAGGS "../../partial_aggregates"
+click FILTERNOTPUSHED "../../details/filter_pushdown"
 
 {%
   include-markdown "./shared.md"
