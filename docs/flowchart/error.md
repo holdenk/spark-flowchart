@@ -20,13 +20,17 @@ FILEERROR --> PARQUETBUTNOT[Failed to read non-parquet file]
 EBOOM --> ETOOBIGBROADCAST[Too big broadcast join]
 EBOOM --> ECONTAINEROOM[Container out of memory]
 EBOOM --> COLLECT[Using collect]
+ETOOBIGBROADCAST --> EFORCEDBROADCAST[Forced broadcast with disabled threshold]
 
 click EEOOM "../../details/failure-executor-out-of-memory" "Executor OOM"
 click ESPARSE "../../details/sparse-records" "Sparse records"
 click COLLECT "../../details/collect" "Collect and friends"
+click ETOOBIGBROADCAST "../../details/big-broadcast-join" "Broadcast Joins"
 click FILEERROR "../../details/invalid-file" "Invalid or missing files"
 click PARQUETBUTNOT "../../details/failed-to-read-non-parquet-file" "Failed to read non parquet file"
-CLICK EPYUDFOOM "../../details/pyudfoom"
+click EPYUDFOOM "../../details/pyudfoom" "Udf OOM"
+click EFORCEDBROADCAST "../../details/broadcast-with-disable" "Forced broadcast with disabled"
+
 
 {%
   include-markdown "./shared.md"
