@@ -1,6 +1,6 @@
-Welcome to the Spark Advnaced Topics Working Group!
+Welcome to the Spark Advanced Topics Working Group!
 
-# Veiwing the docs
+# Viewing the docs
 
 First make sure you have the requirements `pip install -r requirements.txt` then `mkdocs serve` should let you view the docs.
 
