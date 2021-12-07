@@ -4,8 +4,10 @@ C[I have an exception or error]
 BADAGGREGATE[Bad aggregation or window]
 
 C --> EEOOM[Spark executor ran out of memory]
-C --> EBOOM[Spark driver ran out of memory]
+C --> EDOOM[Spark driver ran out of memory]
 C --> FILEERROR[Invalid/Missing Files]
+C --> ExecutorOutOfDiskError[Executor out of disk space errors]
+ExecutorOutOfDiskError --> TOOBIGDAG
 EEOOM --> KEYSKEW[Key Skew]
 KEYSKEW --> BADAGGREGATE
 ELARGERECORDS --> BADAGGREGATE
@@ -17,11 +19,13 @@ EEOOM --> ECONTAINEROOM[Container out of memory]
 EEOOM --> ETOOBIGBROADCAST[Too big broadcast join]
 FILEERROR --> PARQUETBUTNOT[Failed to read non-parquet file]
 
-EBOOM --> ETOOBIGBROADCAST[Too big broadcast join]
-EBOOM --> ECONTAINEROOM[Container out of memory]
-EBOOM --> COLLECT[Using collect]
+EDOOM --> ETOOBIGBROADCAST[Too big broadcast join]
+EDOOM --> ECONTAINEROOM[Container out of memory]
+EDOOM --> COLLECT[Using collect]
+EDOOM --> TOOBIGDAG
 ETOOBIGBROADCAST --> EFORCEDBROADCAST[Forced broadcast with disabled threshold]
 
+click ExecutorOutOfDiskError "../../details/executor-out-of-disk"
 click EEOOM "../../details/failure-executor-out-of-memory" "Executor OOM"
 click ESPARSE "../../details/sparse-records" "Sparse records"
 click COLLECT "../../details/collect" "Collect and friends"
