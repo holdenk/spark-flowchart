@@ -31,4 +31,4 @@ if not b"\0" in blob.data[0:8192]:
   orig = blob.data
   rewrite = re.sub("\{\%.*\.\./\.\.\/private.*\%\}", "", blob.data.decode()).encode()
   blob.data = rewrite'
-git push oss main --force-with-lease
+git push oss main --force
