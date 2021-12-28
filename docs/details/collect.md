@@ -5,9 +5,9 @@ A common anti-pattern in Apache Spark is using `collect()` and then processing r
 - Label items in ascending order
 	* ZipWithIndex
 - Index items in order
-	* Compute the size of each partion use this to assign indexes.
+	* Compute the size of each partition use this to assign indexes.
 - In order processing
-	* Compute a partion at a time (this is annoying to do, sorry).
+	* Compute a partition at a time (this is annoying to do, sorry).
 - Writing out to a format not supported by Spark
 	* Use `foreachPartition` or implement your own DataSink.
 - Need to aggregate everything into a single record

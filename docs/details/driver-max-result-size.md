@@ -1,0 +1,13 @@
+# Result size larger than spark.driver.maxResultsSize error
+
+
+
+ex: ![Key-Skew-Spark-UI](../imgs/spark-driver-max-result-size-error.png)
+
+You typically run into this error for one of the following reasons.
+
+1. You are sending a large result set to the driver using `SELECT`(in SQL) or `COLLECT`(in dataframes/dataset/RDD): Apply a `limit` if your intention is to spot check some rows as you won't be able to go through full set of rows if you have a really high no.of rows. Writing the results to a temporary table in your schema and querying the new table would be an alternative if you need to query the results multiple times with a specific filters.
+2. You are broadcasting a table that is too big. Spark downloads all the rows for a table that needs to be broadcasted to the driver before it starts shipping to the executors so if you are broadcasting a table that is larger than `spark.driver.maxResultsSize`, you will run into this error. You can overcome this by either increasing the `spark.driver.maxResultsSize` or not broadcasting the table so Spark would use a shuffle hash or sort-merge join.
+3. You have a `sort` in your SQL/Dataframe: Spark internally uses range-partitioning to assign the sort keys to a partition range. This involves in collecting a sample rows from input partitions and sending them to the driver for computing the range boundaries using the sample rows. 
+   a. You could run into error if you have wide/bloated rows in your table. i.e. you are not sending a lot of rows to the driver, but you are sending bytes larger than the `spark.driver.maxResultsSize`. The recommendation here is to lower the default sample size by setting the spark property `spark.sql.execution.rangeExchange.sampleSizePerPartition` to something lower than 20. You can also increase `spark.driver.maxResultsSize` if lowering the sample size is causing an imbalance in partition ranges(for ex: skew in a sub-sequent stage or non-uniform output files etc..)
+   b. You could also run into this error if you have too many Spark partitions from the previous stage. for ex: you have a large no.of map tasks while reading from a table. In this case, since spark jas to collect sample rows from every partition, your total bytes from the no.of rows(partitions*sampleSize) could be larger than `spark.driver.maxResultsSize`. A recommended way to resolve this issue is by combining the splits for the table(increase `spark.netflix.(db).(table).target-size`) with high map tasks. Note that having a large no.of map tasks(>80k) will cause other OOM issues on driver as it needs to keep track of metadata for all these tasks/partitions.  
