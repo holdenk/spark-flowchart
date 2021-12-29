@@ -1,5 +1,5 @@
 ```mermaid
-graph TD
+flowchart LR
 
 B[Slow]
 

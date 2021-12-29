@@ -1,5 +1,5 @@
 ```mermaid
-graph TD
+flowchart LR
 C[I have an exception or error]
 BADAGGREGATE[Bad aggregation or window]
 
