@@ -31,7 +31,7 @@ java.util.regex.Matcher.find(Matcher.java:637)
 org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificUnsafeProjection.RegExpExtract_2$(Unknown Source)
 ```
 
-Certain values in the dataset cause `regexp_extract` with a certain regex patten to run very slowly.
+Certain values in the dataset cause `regexp_extract` with a certain regex pattern to run very slowly.
 See https://stackoverflow.com/questions/5011672/java-regular-expression-running-very-slow.
 
 ## Match Special Character in PySpark

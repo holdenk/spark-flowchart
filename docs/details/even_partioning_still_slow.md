@@ -1,9 +1,11 @@
 # Even partioning, but still slow
 
-Sometimes you will have a stage with even partioning where it is still slow. To see if a stage if evenly partioned take a look the stage page and look at the distribution of data sizes and durations of the completed tasks.
+To see if a stage if evenly partioned take a look at the Spark WebUI --> Stage tab and look at the distribution of data sizes and durations of the completed tasks. Sometimes a stage with even parititoning is still slow.
 
 
 If the max task duration is still substantailly shorter than the stages overall duration, this is often a sign of an insufficient number of executors. Spark can run (at most) `spark.executor.cores * spark.dynamicAllocation.maxExecutors` tasks in parallel (and in practice this will be lower since some tasks will be speculatively executed and some executors will fail). Try increasing the `maxExecutors` and seeing if your job speeds up.
+
+Note: Setting `spark.executor.cores * spark.dynamicAllocation.maxExecutors` in excess of cluster capacity can result in the job waiting in PENDING state. So, try increasing `maxExecutors` within the limitations of the cluster resources and check if the job runtime is faster given the same input data.
 
 
 
