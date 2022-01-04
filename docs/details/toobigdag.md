@@ -7,8 +7,8 @@ Spark uses lazy evaluation and creates a DAG (directed acyclic graph) of the ope
 - Executor out-of-disk-error
 
 
-If your job hasn't crashed, an easy way to check is by looking at the Spark Web UI and seeing what the DAG visualization looks like.
-TODO: clarify whether too wide DAG is problematic, or too long, or takes too long to load, or too many nodes, etc.
+If your job hasn't crashed, an easy way to check is by looking at the Spark Web UI and seeing what the DAG visualization looks like. If the DAG takes a measurable length of time to load (minutes), or fills a few screens it's likely "too-big."
+
 
 
 Working around this can be complicated, but there are some tools to simplify it. The first is Spark's `checkpointing` which allows Spark to "forget" the DAG so far by writing the data out to a persistent storage like S3 or HDFS. The second is manually doing what checkpointing does, that is on your own writing the data out and loading it back in.
