@@ -19,7 +19,7 @@ TOOMUCHDATA --> FILTERNOTPUSHED[Filter not pushed down]
 TOOMUCHDATA --> AGGNOTPUSHED[Aggregation not pushed down]
 TOOMUCHDATA --> STORAGE_PARTITIONING[Bad storage partioning]
 
-GOODPART_SLOW --> TOOBIGDAG
+B --> TOOBIGDAG
 
 click BADPART "../../details/bad_partioning" "Slow stage with uneven partioning"
 click GOODPART_SLOW "../../details/even_partioning_still_slow" "Slow stage with even partioning"
