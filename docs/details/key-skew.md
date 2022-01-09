@@ -40,4 +40,4 @@ Approximate data structures like Tdigest can help with quantile computations.
 If you need exact quantiles, check out the example in [High Performance Spark](https://amzn.to/3cmdRw9)
 
 
-Certain types of aggregations and windows can result in partioning the data on a particular key.
+Certain types of aggregations and windows can result in partitioning the data on a particular key.

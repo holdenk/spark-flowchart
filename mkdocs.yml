@@ -7,8 +7,9 @@ plugins:
   - include-markdown
 
 markdown_extensions:
+  - admonition
+  - pymdownx.details
   - pymdownx.superfences:
-      # make exceptions to highlighting of code:
       custom_fences:
         - name: mermaid
           class: mermaid
