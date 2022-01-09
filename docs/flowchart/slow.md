@@ -5,24 +5,23 @@ B[Slow]
 
 B --> SLOWSTAGE[Slow stage]
 
-SLOWSTAGE --> PARTIONING[Partioning]
+SLOWSTAGE --> PARTITIONING[Partitioning]
 SLOWSTAGE --> SLOWEXEC[Slow executor]
-SLOWSTAGE --> UDFSLOWNESS[udfslowness]
+SLOWSTAGE --> UDFSLOWNESS[Slow UDF]
 UDFSLOWNESS --> PAGGS[Partial aggregates]
-PARTIONING --> GOODPART_SLOW[Even partioning]
-PARTIONING --> BADPART[Uneven partioning]
+PARTITIONING --> GOODPART_SLOW[Even partitioning]
+PARTITIONING --> BADPART[Uneven partitioning]
 BADPART --> KEYSKEW
 
+B --> TOOBIGDAG
 
 B --> TOOMUCHDATA[Reading more data than needed]
 TOOMUCHDATA --> FILTERNOTPUSHED[Filter not pushed down]
 TOOMUCHDATA --> AGGNOTPUSHED[Aggregation not pushed down]
-TOOMUCHDATA --> STORAGE_PARTITIONING[Bad storage partioning]
+TOOMUCHDATA --> STORAGE_PARTITIONING[Bad storage partitioning]
 
-B --> TOOBIGDAG
-
-click BADPART "../../details/bad_partioning" "Slow stage with uneven partioning"
-click GOODPART_SLOW "../../details/even_partioning_still_slow" "Slow stage with even partioning"
+click BADPART "../../details/bad_partitioning"
+click GOODPART_SLOW "../../details/even_partitioning_still_slow"
 click UDFSLOWNESS "../../details/udfslow"
 click PAGGS "../../details/partial_aggregates"
 click FILTERNOTPUSHED "../../details/filter_pushdown"
