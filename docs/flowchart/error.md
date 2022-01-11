@@ -4,6 +4,8 @@ C[I have an exception or error]
 BADAGGREGATE[Bad aggregation or window]
 
 C --> FORCECOMPUTE[Exception occurs during write phase, but seems unrelated]
+C --> EANALYSIS[Spark SQL Analysis Exception]
+
 
 C --> EEOOM[Spark executor ran out of memory]
 C --> EDOOM[Spark driver ran out of memory]
@@ -20,6 +22,8 @@ EEOOM --> EJSONREGEX[Json REGEX issues]
 EEOOM --> ECONTAINEROOM[Container out of memory]
 EEOOM --> ETOOBIGBROADCAST[Too big broadcast join]
 FILEERROR --> PARQUETBUTNOT[Failed to read non-parquet file]
+
+EANALYSIS --> ECORCOL[Correlated column is not allowed in predicate]
 
 EDOOM --> ETOOBIGBROADCAST[Too big broadcast join]
 EDOOM --> ECONTAINEROOM[Container out of memory]
@@ -39,6 +43,8 @@ click EPYUDFOOM "../../details/pyudfoom" "Udf OOM"
 click EFORCEDBROADCAST "../../details/broadcast-with-disable" "Forced broadcast with disabled"
 click EDRESULTSIZE "../../details/driver-max-result-size" "bigger than spark.driver.maxResultSize"
 click FORCECOMPUTE "../../details/forced-computations" "Force computations."
+click ECORCOL "../../details/correlated-column-not-allowed" "Correlated column not allowed."
+click EANALYSIS "../../details/analysis-exception"
 
 {%
   include-markdown "./shared.md"
