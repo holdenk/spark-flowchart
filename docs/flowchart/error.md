@@ -3,6 +3,8 @@ flowchart LR
 C[I have an exception or error]
 BADAGGREGATE[Bad aggregation or window]
 
+C --> FORCECOMPUTE[Exception occurs during write phase, but seems unrelated]
+
 C --> EEOOM[Spark executor ran out of memory]
 C --> EDOOM[Spark driver ran out of memory]
 C --> FILEERROR[Invalid/Missing Files]
@@ -36,6 +38,7 @@ click PARQUETBUTNOT "../../details/failed-to-read-non-parquet-file" "Failed to r
 click EPYUDFOOM "../../details/pyudfoom" "Udf OOM"
 click EFORCEDBROADCAST "../../details/broadcast-with-disable" "Forced broadcast with disabled"
 click EDRESULTSIZE "../../details/driver-max-result-size" "bigger than spark.driver.maxResultSize"
+click FORCECOMPUTE "../../details/forced-computations" "Force computations."
 
 {%
   include-markdown "./shared.md"
