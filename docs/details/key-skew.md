@@ -14,7 +14,7 @@ TODO: Is (2) intended to mean partitions created BEFORE a transformation? i.e. d
 How to identify skew
 
 1. If one task took much longer to complete than the other tasks, it's usually a sign of skew. On the Spark UI --> Summary Metrics --> Completed Tasks, if the Max task duration is higher by a significant magnitude from the Median task duration, this likely represents skew, e.g.:
-![Key-skew-Spark-UI](../imgs/spark-skewed.png)
+![Key-Skew-Spark-UI](../imgs/spark-skewed.png)
 
 Things to consider
 
