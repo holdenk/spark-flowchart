@@ -9,7 +9,6 @@ Certain types of aggregations and windows can result in partitioning the data on
 1. Usually caused during a transformation when the data in one partition ends up being a lot larger than the others.
 
 2. If processing partitions are unbalanced by an order of magnitude, then the largest partition becomes the bottleneck.
-TODO: Is (2) intended to mean partitions created BEFORE a transformation? i.e. do we need both (1) and (2) here?
 
 How to identify skew
 
@@ -27,13 +26,15 @@ Mitigation strategies
 
 2. Salting is a way to balance partitions by introducing a salt/dummy key for the skewed partitions. Here is a sample workbook and an example of salting in content performance show completion pipeline, where the whole salting operation is parametrized with a JOIN_BUCKETS variable which helps with maintenance of this job.
 ![Spark-Salted-UI](../imgs/spark-salted.png)
-TODO: what is the link to the workbook? Link to example? Sounds very useful! 
 
 3. Isolate the data for the skewed key, broadcast it for processing (e.g. join) and then union back the results.
 
 4. Adaptive Query Execution is a new framework with Spark 3.0, enabling Spark to dynamically identify skew. Under the hood, adaptive query execution splits (and replicates if needed) skewed (large) partitions. If you don’t want to upgrade to Spark3.x, you can build the solution into your code by using the Salting/Partitioning technique listed above.
 
 5. Using approximate functions/ probabilistic data structure
-Approximate distinct counts (Hyperloglog, bloom filter) can help get around skew if absolute precision isn't important.
-If you need exact quantiles, check out the example in [High Performance Spark](https://amzn.to/3cmdRw9)
 
+6. Approximate distinct counts (Hyperloglog, bloom filter) can help get around skew if absolute precision isn't important.
+
+7. Approximate data structures like Tdigest can help with quantile computations. If you need exact quantiles, check out the example in [High Performance Spark](https://amzn.to/3cmdRw9)
+
+8. Use a different type of aggregation or window to avoid partitioning the data on the key which is highly skewed.
