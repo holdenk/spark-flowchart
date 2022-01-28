@@ -32,6 +32,8 @@ EDOOM --> EDRESULTSIZE[maxResultSize exceeded]
 EDOOM --> TOOBIGDAG
 ETOOBIGBROADCAST --> EFORCEDBROADCAST[Forced broadcast with disabled threshold]
 
+C --> ENOTFOUND[Class or method not found]
+
 click ExecutorOutOfDiskError "../../details/executor-out-of-disk"
 click EEOOM "../../details/failure-executor-out-of-memory" "Executor OOM"
 click ESPARSE "../../details/sparse-records" "Sparse records"
@@ -45,6 +47,7 @@ click EDRESULTSIZE "../../details/driver-max-result-size" "bigger than spark.dri
 click FORCECOMPUTE "../../details/forced-computations" "Force computations."
 click ECORCOL "../../details/correlated-column-not-allowed" "Correlated column not allowed."
 click EANALYSIS "../../details/analysis-exception"
+click ENOTFOUND "../../details/class-or-method-not-found"
 
 {%
   include-markdown "./shared.md"
