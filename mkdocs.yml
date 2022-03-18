@@ -15,4 +15,4 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:mermaid2.fence_mermaid
 
-copyright: Copyright various authors 2021, CC-BY-SA 4.0
+copyright: Copyright various authors 2022, CC-BY-SA 4.0
