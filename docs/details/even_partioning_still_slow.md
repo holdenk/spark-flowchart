@@ -7,3 +7,6 @@ There are a few common possible causes when the partioning is even for slow stag
 
 
 If the data is evenly partitioned but the max task duration is longer than desired for the stage, increasing the number of executors will not help and you'll need to re-partition the data. See [Bad Partitioning](../bad_partitioning).
+
+
+Another cause of too large partioning can be non-splittable compression formats, like gzip, that can be worked around with tools like [splittablegzip](https://github.com/nielsbasjes/splittablegzip).
