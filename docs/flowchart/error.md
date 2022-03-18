@@ -14,10 +14,9 @@ C --> ExecutorOutOfDiskError[Executor out of disk space errors]
 ExecutorOutOfDiskError --> TOOBIGDAG
 EEOOM --> KEYSKEW[Key Skew]
 KEYSKEW --> BADAGGREGATE
-ELARGERECORDS --> BADAGGREGATE
-EEOOM --> ELARGERECORDS[Large records]
-ELARGERECORDS --> ESPARSE[Sparse records]
-ELARGERECORDS --> EPYUDFOOM[Python UDF OOM]
+LARGERECORDS --> BADAGGREGATE
+EEOOM --> LARGERECORDS[Large records]
+LARGERECORDS --> EPYUDFOOM[Python UDF OOM]
 EEOOM --> EJSONREGEX[Json REGEX issues]
 EEOOM --> ECONTAINEROOM[Container out of memory]
 EEOOM --> ETOOBIGBROADCAST[Too big broadcast join]
@@ -36,7 +35,6 @@ C --> ENOTFOUND[Class or method not found]
 
 click ExecutorOutOfDiskError "../../details/executor-out-of-disk"
 click EEOOM "../../details/failure-executor-out-of-memory" "Executor OOM"
-click ESPARSE "../../details/sparse-records" "Sparse records"
 click COLLECT "../../details/collect" "Collect and friends"
 click ETOOBIGBROADCAST "../../details/big-broadcast-join" "Broadcast Joins"
 click FILEERROR "../../details/invalid-file" "Invalid or missing files"

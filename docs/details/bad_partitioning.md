@@ -10,3 +10,6 @@ The other type of skewed partitioning comes from "input partioned" data which is
 
 
 Insufficent partitioning is similar to input skewed partitioning, except instead of skew there just are not enough partions. Similarily you  the number of partions (e.g. `repartion(5000)` or change `spark.sql.shuffle.partitions`).
+
+
+Another cause of bad partioning can be non-splittable compression formats, like gzip, that can be worked around with tools like [splittablegzip](https://github.com/nielsbasjes/splittablegzip).
