@@ -5,7 +5,7 @@ BADAGGREGATE[Bad aggregation or window]
 
 C --> FORCECOMPUTE[Exception occurs during write phase, but seems unrelated]
 C --> EANALYSIS[Spark SQL Analysis Exception]
-
+C --> EUNRELATED[Error appears unrelated or occurs during write phase]
 
 C --> EEOOM[Spark executor ran out of memory]
 C --> EDOOM[Spark driver ran out of memory]
@@ -14,10 +14,9 @@ C --> ExecutorOutOfDiskError[Executor out of disk space errors]
 ExecutorOutOfDiskError --> TOOBIGDAG
 EEOOM --> KEYSKEW[Key Skew]
 KEYSKEW --> BADAGGREGATE
-ELARGERECORDS --> BADAGGREGATE
-EEOOM --> ELARGERECORDS[Large records]
-ELARGERECORDS --> ESPARSE[Sparse records]
-ELARGERECORDS --> EPYUDFOOM[Python UDF OOM]
+LARGERECORDS --> BADAGGREGATE
+EEOOM --> LARGERECORDS[Large records]
+LARGERECORDS --> EPYUDFOOM[Python UDF OOM]
 EEOOM --> EJSONREGEX[Json REGEX issues]
 EEOOM --> ECONTAINEROOM[Container out of memory]
 EEOOM --> ETOOBIGBROADCAST[Too big broadcast join]
@@ -32,9 +31,10 @@ EDOOM --> EDRESULTSIZE[maxResultSize exceeded]
 EDOOM --> TOOBIGDAG
 ETOOBIGBROADCAST --> EFORCEDBROADCAST[Forced broadcast with disabled threshold]
 
+C --> ENOTFOUND[Class or method not found]
+
 click ExecutorOutOfDiskError "../../details/executor-out-of-disk"
 click EEOOM "../../details/failure-executor-out-of-memory" "Executor OOM"
-click ESPARSE "../../details/sparse-records" "Sparse records"
 click COLLECT "../../details/collect" "Collect and friends"
 click ETOOBIGBROADCAST "../../details/big-broadcast-join" "Broadcast Joins"
 click FILEERROR "../../details/invalid-file" "Invalid or missing files"
@@ -45,6 +45,8 @@ click EDRESULTSIZE "../../details/driver-max-result-size" "bigger than spark.dri
 click FORCECOMPUTE "../../details/forced-computations" "Force computations."
 click ECORCOL "../../details/correlated-column-not-allowed" "Correlated column not allowed."
 click EANALYSIS "../../details/analysis-exception"
+click ENOTFOUND "../../details/class-or-method-not-found"
+click EUNRELATED "../../details/force-computations"
 
 {%
   include-markdown "./shared.md"

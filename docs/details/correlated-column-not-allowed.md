@@ -44,8 +44,11 @@ create or replace view t3 as select t2.c from t2 INNER JOIN t1 ON t2.c = t1.a + 
 select c, count(*) from t3 group by c;
 ```
 
+Similarily in Scala and Python use an explicit `.join` and then perform your aggregation on the joined result.
+
+
 
 # Relevant links:
 
-https://issues.apache.org/jira/browse/SPARK-35080?page=com.atlassian.jira.plugin.system.issuetabpanels%3Aall-tabpanel
-https://stackoverflow.com/questions/65358584/pyspark-error-while-running-sql-subquery-analysisexception-ucorrelated-column
+- [SPARK-35080 JIRA](https://issues.apache.org/jira/browse/SPARK-35080)
+- [Stackoverflow discussion for PySpark workaround of Correlated Column](https://stackoverflow.com/questions/65358584/pyspark-error-while-running-sql-subquery-analysisexception-ucorrelated-column)
