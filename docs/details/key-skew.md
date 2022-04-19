@@ -22,7 +22,7 @@ Things to consider
 
 Mitigation strategies
 
-1. Increasing executor memory to prevent OOM exceptions -> This a short-term solution if you want to unblock yourself but does not address the underlying issue. Sometimes this is not an option when you are already running at the max memory settings allowable. 
+1. Increasing executor memory to prevent OOM exceptions -> This a short-term solution if you want to unblock yourself but does not address the underlying issue. Sometimes this is not an option when you are already running at the max memory settings allowable.
 
 1. Salting is a way to balance partitions by introducing a salt/dummy key for the skewed partitions. Here is a sample workbook and an example of salting in content performance show completion pipeline, where the whole salting operation is parametrized with a JOIN_BUCKETS variable which helps with maintenance of this job.
 ![Spark-Salted-UI](../imgs/spark-salted.png)

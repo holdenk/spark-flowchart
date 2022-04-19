@@ -44,8 +44,8 @@ create or replace view t3 as select t2.c from t2 INNER JOIN t1 ON t2.c = t1.a + 
 select c, count(*) from t3 group by c;
 ```
 
-
 Similarily in Scala and Python use an explicit `.join` and then perform your aggregation on the joined result.
+
 
 
 # Relevant links:
