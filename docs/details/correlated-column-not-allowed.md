@@ -24,7 +24,7 @@ create or replace view t3 as select t1.c from t2 INNER JOIN t1 ON t1.c = substri
 select c, count(*) from t3 group by c;
 ```
 
-Similarily:
+Similarly:
 
 ```sql
 create or replace view t1(a, b) as values (0, 6), (1, 5), (2, 4), (3, 3);
@@ -44,8 +44,8 @@ create or replace view t3 as select t2.c from t2 INNER JOIN t1 ON t2.c = t1.a + 
 select c, count(*) from t3 group by c;
 ```
 
-
-Similarily in Scala and Python use an explicit `.join` and then perform your aggregation on the joined result.
+Likewise in Scala and Python use an explicit `.join` and then perform your aggregation on the joined result.
+Now Spark can compute correct results thus avoiding the exception.
 
 
 # Relevant links:
