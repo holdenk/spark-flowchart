@@ -6,7 +6,7 @@ Welcome to the Spark Advanced Topics Working Group!
 
 First, make sure you have the requirements `pip install -r requirements.txt` then `mkdocs serve` should let you view the docs.
 
-If you have difficulty running `mkdocs serve` you may need to place your local pip path ahead of the other elements so that version of mkdocs takes precedence (e.g. for me `export PATH=~/.local/bin/:$PATH`).
+If you have difficulty running `mkdocs serve` you may need to place your local pip path ahead of the other elements so that version of mkdocs takes precedence (e.g. for me `export PATH=~/.local/bin/:$PATH`). If you have multiple python versions installed, you may need to specify which python should run mkdocs, (e.g. `python3 -m mkdocs serve`). 
 
 ## Contributing
 
