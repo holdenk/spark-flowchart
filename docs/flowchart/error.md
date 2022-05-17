@@ -12,7 +12,6 @@ C --> FILEERROR[Invalid/Missing Files]
 C --> ExecutorOutOfDiskError[Executor out of disk space errors]
 ExecutorOutOfDiskError --> TOOBIGDAG
 EEOOM --> KEYSKEW[Key Skew]
-KEYSKEW --> BADAGGREGATE
 LARGERECORDS --> BADAGGREGATE
 EEOOM --> LARGERECORDS[Large records]
 LARGERECORDS --> EPYUDFOOM[Python UDF OOM]
