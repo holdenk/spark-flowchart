@@ -14,7 +14,7 @@ A common anti-pattern in Apache Spark is using `collect()` and then processing r
 	* Call `reduce` or `treeReduce`
 
 
-Sometimes you do really need to bring the data back to the driver for some reason (e.g., updating model weights). In those cases, especially if you process the data sequentially, you can limit the amount of data coming back to the driver at one time. `toLocalIterator` gives you back an iterator which will only need to fetch a partion at a time (although in Python this may be pipeline for efficency). By default `toLocalIterator` will launch a Spark job for each partition, so if you know you will eventually need all of the data it makes sense to do a `persist` + a `count` (async or otherwise) so you don't block as long between partions.
+Sometimes you do really need to bring the data back to the driver for some reason (e.g., updating model weights). In those cases, especially if you process the data sequentially, you can limit the amount of data coming back to the driver at one time. `toLocalIterator` gives you back an iterator which will only need to fetch a partition at a time (although in Python this may be pipelined for efficency). By default `toLocalIterator` will launch a Spark job for each partition, so if you know you will eventually need all of the data it makes sense to do a `persist` + a `count` (async or otherwise) so you don't block as long between partitions.
 
 
 This doesn't mean every call to `collect()` is bad, if the amount of data being returned is under ~1gb it's probably _OK_ although it will limit parallelism.

@@ -6,4 +6,4 @@ Partial Aggregation is a key concept when handling large amounts of data in Spar
 In RDD world the classic "full" aggregation is `groupByKey` and partial aggregation is `reduceByKey`.
 
 
-In DataFrame/Datasets, Scala UDAFs implement partial aggregation but the basic PySpark Panda's/Arrow UDAFs do not support partial aggregation.
+In DataFrame/Datasets land, Scala UDAFs implement partial aggregation but the basic PySpark Panda's/Arrow UDAFs do not support partial aggregation.
