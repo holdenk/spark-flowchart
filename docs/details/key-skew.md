@@ -29,7 +29,7 @@ Things to consider
 
 1. Isolate the data for the skewed key, broadcast it for processing (e.g. join) and then union back the results
 
-1. Adaptive Query Execution is a new framework with Spark 3.0, it enables Spark to dynamically identify skew. Under the hood adaptive query execution splits (and replicates if needed) skewed (large) partitions. If you don’t want to wait for 3.0, you can build the solution into the code by using the Salting/Partitioning technique listed above.
+1. Adaptive Query Execution is a new framework with Spark 3.0, it enables Spark to dynamically identify skew. Under the hood adaptive query execution splits (and replicates if needed) skewed (large) partitions. If you are unable to upgrade to Spark 3.0, you can build the solution into the code by using the Salting/Partitioning technique listed above.
 
 1. Using approximate functions/ probabilistic data structure
 

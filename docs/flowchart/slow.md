@@ -9,15 +9,23 @@ SlowStage --> SlowMap[Slow Read/Map]
 SlowStage --> SlowReduce[Slow Shuffle/Reducer/Exchange]
 SlowJob --> TOOBIGDAG[Too Big DAG]
 
+SlowJob --> PARTITIONING[Partitioning]
+SlowMap --> SLOWEXEC[Slow executor]
+SlowMap --> UDFSLOWNESS[Slow UDF]
+SlowReduce --> PAGGS[Partial aggregates]
+PARTITIONING --> GOODPART_SLOW[Even partitioning]
+PARTITIONING --> UNEVENPART[Uneven/Skewed partitioning]
+UNEVENPART --> KEYSKEW
+
 SlowMap   --> MissingSourcePredicates[Reading more data than needed]
 MissingSourcePredicates --> PartitionPruning[Partition Pruning]
 MissingSourcePredicates --> ColumnPruning[Column Pruning]
 MissingSourcePredicates --> PredicatePushDown[Predicate Push Down]
- 
+
 SlowMap   --> TooFewMapTasks[Not enough Read/Map Tasks]
 SlowMap   --> TooManyMapTasks[Too many Read/Map Tasks]
 SlowMap   --> SlowTransformations[Slow Transformations]
-SlowMap   --> SkewedMapTasks[Skewed Map Tasks] 
+SlowMap   --> SkewedMapTasks[Skewed Map Tasks]
 SkewedMapTasks --> RecordSkew[Record Skew]
 SkewedMapTasks --> TaskSkew[Task skew]
 
@@ -58,6 +66,14 @@ click SkewedJoin "../../details/slow-skewed-join"
 click SkewedAggregation "../../details/slow-reduce/#skewed-shuffle-tasks"
 click SkewedWrite "../../details/slow-skewed-write"
 
+TOOMUCHDATA[Reading more data than needed]
+TOOMUCHDATA --> FILTERNOTPUSHED[Filter not pushed down]
+TOOMUCHDATA --> AGGNOTPUSHED[Aggregation not pushed down]
+TOOMUCHDATA --> STORAGE_PARTITIONING[Bad storage partitioning]
+
+click UNEVENPART "../../details/uneven_partitioning"
+click GOODPART_SLOW "../../details/even_partitioning_still_slow"
+click UDFSLOWNESS "../../details/udfslow"
 
 click PAGGS "../../details/partial_aggregates"
 
