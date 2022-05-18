@@ -10,8 +10,8 @@ SLOWSTAGE --> SLOWEXEC[Slow executor]
 SLOWSTAGE --> UDFSLOWNESS[Slow UDF]
 UDFSLOWNESS --> PAGGS[Partial aggregates]
 PARTITIONING --> GOODPART_SLOW[Even partitioning]
-PARTITIONING --> BADPART[Uneven/Skewed partitioning]
-BADPART --> KEYSKEW
+PARTITIONING --> UNEVENPART[Uneven/Skewed partitioning]
+UNEVENPART --> KEYSKEW
 
 GOODPART_SLOW --> TOOMANY[Too many tasks]
 GOODPART_SLOW --> TOOFEW[Not enough tasks]
@@ -33,7 +33,7 @@ TOOMUCHDATA --> FILTERNOTPUSHED[Filter not pushed down]
 TOOMUCHDATA --> AGGNOTPUSHED[Aggregation not pushed down]
 TOOMUCHDATA --> STORAGE_PARTITIONING[Bad storage partitioning]
 
-click BADPART "../../details/bad_partitioning"
+click UNEVENPART "../../details/uneven_partitioning"
 click GOODPART_SLOW "../../details/even_partitioning_still_slow"
 click UDFSLOWNESS "../../details/udfslow"
 
