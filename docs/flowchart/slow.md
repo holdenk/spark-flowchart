@@ -17,6 +17,12 @@ PARTITIONING --> GOODPART_SLOW[Even partitioning]
 PARTITIONING --> UNEVENPART[Uneven/Skewed partitioning]
 UNEVENPART --> KEYSKEW
 
+SlowJob --> SLOWWRITESTOSTORAGE[Slow writes to storage]
+TRANSFORM --> TOOMUCHDATA
+TRANSFORM --> PARTITIONING
+TRANSFORM --> LARGERECORDS
+
+
 SlowMap   --> MissingSourcePredicates[Reading more data than needed]
 MissingSourcePredicates --> PartitionPruning[Partition Pruning]
 MissingSourcePredicates --> ColumnPruning[Column Pruning]
@@ -66,16 +72,35 @@ click SkewedJoin "../../details/slow-skewed-join"
 click SkewedAggregation "../../details/slow-reduce/#skewed-shuffle-tasks"
 click SkewedWrite "../../details/slow-skewed-write"
 
+
+
 TOOMUCHDATA[Reading more data than needed]
 TOOMUCHDATA --> FILTERNOTPUSHED[Filter not pushed down]
 TOOMUCHDATA --> AGGNOTPUSHED[Aggregation not pushed down]
 TOOMUCHDATA --> STORAGE_PARTITIONING[Bad storage partitioning]
 
 click UNEVENPART "../../details/uneven_partitioning"
+
+SLOWWRITESTOSTORAGE[Slow writes to storage]
+SLOWWRITESTOSTORAGE --> TOOMANYFILES[Slow writes because there are too many files]
+SLOWWRITESTOSTORAGE --> S3COMMITTER[Slow writes on S3 depend on the committer]
+
 click GOODPART_SLOW "../../details/even_partitioning_still_slow"
 click UDFSLOWNESS "../../details/udfslow"
 
 click PAGGS "../../details/partial_aggregates"
+
+click FILTERNOTPUSHED "../../details/filter_pushdown"
+click SLOWEXEC "../../details/slow-executor"
+click SLOWSTAGE "../../details/slowstage"
+click SLOWWRITESTOSTORAGE "../../details/slow-writes"
+click TOOMANYFILES "../../details/slow-writes-too-many-files"
+click S3COMMITTER "../../details/slow-writes-s3"
+
+click TOOMANY "../../details/toomany_tasks"
+click TOOFEW "../../details/toofew_tasks"
+click NOTENOUGHEXEC "../../details/notenoughexecs"
+click PARTITIONING "../../details/partitioning"
 
 {%
   include-markdown "./shared.md"
