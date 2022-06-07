@@ -24,6 +24,7 @@ B --> TOOBIGDAG
 
 SLOWSTAGE --> SHUFFLE[Exchange/Shuffle/Reducer]
 SLOWSTAGE --> TRANSFORM[Read/Map]
+SLOWSTAGE --> SLOWWRITESTOSTORAGE[Slow writes to storage]
 TRANSFORM --> TOOMUCHDATA
 TRANSFORM --> PARTITIONING
 TRANSFORM --> LARGERECORDS
@@ -33,6 +34,10 @@ TOOMUCHDATA --> FILTERNOTPUSHED[Filter not pushed down]
 TOOMUCHDATA --> AGGNOTPUSHED[Aggregation not pushed down]
 TOOMUCHDATA --> STORAGE_PARTITIONING[Bad storage partitioning]
 
+SLOWWRITESTOSTORAGE[Slow writes to storage]
+SLOWWRITESTOSTORAGE --> TOOMANYFILES[Slow writes because there are too many files]
+SLOWWRITESTOSTORAGE --> S3COMMITTER[Slow writes on S3 depend on the committer]
+
 click BADPART "../../details/bad_partitioning"
 click GOODPART_SLOW "../../details/even_partitioning_still_slow"
 click UDFSLOWNESS "../../details/udfslow"
@@ -41,6 +46,9 @@ click PAGGS "../../details/partial_aggregates"
 click FILTERNOTPUSHED "../../details/filter_pushdown"
 click SLOWEXEC "../../details/slow-executor"
 click SLOWSTAGE "../../details/slowstage"
+click SLOWWRITESTOSTORAGE "../../details/slow-writes"
+click TOOMANYFILES "../../details/slow-writes-too-many-files"
+click S3COMMITTER "../../details/slow-writes-s3"
 
 click TOOMANY "../../details/toomany_tasks"
 click TOOFEW "../../details/toofew_tasks"
