@@ -21,7 +21,7 @@ Yay! We are so excited you want to contribute! Pull requests are welcome.
 - private/
   - All company specific notes
 - tools/
-  - tools for building & handling integration with OSS export *requires OSS branch added as oss* (e.g. `git remote add oss git@github.com:holdenk/spark-flowchart.git` OR if you don't have push permissions to that your own OSS repo to raise PRs from)
+  - tools for building & handling integration with OSS export *requires OSS branch added as oss* (e.g. `git remote add oss git@github.com:holdenk/spark-flowchart.git` OR if you don't have push permissions to that create your own OSS repo to raise PRs from)
   - export_external.sh
     - Export the repo (- company specifics) to OSS docs
     - You should cherry-pick any new OSS commits before running this
