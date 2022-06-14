@@ -9,28 +9,24 @@ SlowStage --> SlowMap[Slow Read/Map]
 SlowStage --> SlowReduce[Slow Shuffle/Reducer/Exchange]
 SlowJob --> TOOBIGDAG[Too Big DAG]
 
-SlowJob --> PARTITIONING[Partitioning]
 SlowMap --> SLOWEXEC[Slow executor]
-SlowMap --> UDFSLOWNESS[Slow UDF]
+EVENPART_SLOW --> UDFSLOWNESS[Slow UDF]
 SlowReduce --> PAGGS[Partial aggregates]
-PARTITIONING --> GOODPART_SLOW[Even partitioning]
-PARTITIONING --> UNEVENPART[Uneven/Skewed partitioning]
-UNEVENPART --> KEYSKEW
+SlowMap --> EVENPART_SLOW[Even partitioning]
 
-SlowJob --> SLOWWRITESTOSTORAGE[Slow writes to storage]
-TRANSFORM --> TOOMUCHDATA
-TRANSFORM --> PARTITIONING
-TRANSFORM --> LARGERECORDS
+EVENPART_SLOW --> SLOWWRITESTOSTORAGE[Slow writes to storage]
+EVENPART_SLOW --> TOOMUCHDATA
+EVENPART_SLOW --> LARGERECORDS
 
 
-SlowMap   --> MissingSourcePredicates[Reading more data than needed]
+EVENPART_SLOW   --> MissingSourcePredicates[Reading more data than needed]
 MissingSourcePredicates --> PartitionPruning[Partition Pruning]
 MissingSourcePredicates --> ColumnPruning[Column Pruning]
 MissingSourcePredicates --> PredicatePushDown[Predicate Push Down]
 
-SlowMap   --> TooFewMapTasks[Not enough Read/Map Tasks]
-SlowMap   --> TooManyMapTasks[Too many Read/Map Tasks]
-SlowMap   --> SlowTransformations[Slow Transformations]
+EVENPART_SLOW   --> TooFewMapTasks[Not enough Read/Map Tasks]
+EVENPART_SLOW   --> TooManyMapTasks[Too many Read/Map Tasks]
+EVENPART_SLOW   --> SlowTransformations[Slow Transformations]
 SlowMap   --> SkewedMapTasks[Skewed Map Tasks]
 SkewedMapTasks --> RecordSkew[Record Skew]
 SkewedMapTasks --> TaskSkew[Task skew]
@@ -42,6 +38,7 @@ SlowReduce --> SpillToDisk[Spill To Disk]
 SkewedShuffleTasks --> SkewedJoin[Skewed Join]
 SkewedShuffleTasks --> SkewedAggregation[Aggregation/Group By]
 SkewedShuffleTasks --> SkewedWrite[Sort/Rapartition/Coalesce before write]
+
 
 
 click SlowJob "../../details/slow-job"
@@ -73,19 +70,16 @@ click SkewedAggregation "../../details/slow-reduce/#skewed-shuffle-tasks"
 click SkewedWrite "../../details/slow-skewed-write"
 
 
-
 TOOMUCHDATA[Reading more data than needed]
 TOOMUCHDATA --> FILTERNOTPUSHED[Filter not pushed down]
 TOOMUCHDATA --> AGGNOTPUSHED[Aggregation not pushed down]
 TOOMUCHDATA --> STORAGE_PARTITIONING[Bad storage partitioning]
 
-click UNEVENPART "../../details/uneven_partitioning"
-
 SLOWWRITESTOSTORAGE[Slow writes to storage]
 SLOWWRITESTOSTORAGE --> TOOMANYFILES[Slow writes because there are too many files]
 SLOWWRITESTOSTORAGE --> S3COMMITTER[Slow writes on S3 depend on the committer]
 
-click GOODPART_SLOW "../../details/even_partitioning_still_slow"
+click EVENPART_SLOW "../../details/even_partitioning_still_slow"
 click UDFSLOWNESS "../../details/udfslow"
 
 click PAGGS "../../details/partial_aggregates"

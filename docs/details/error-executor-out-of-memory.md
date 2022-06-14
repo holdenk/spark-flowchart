@@ -1,4 +1,4 @@
-#Executor ran out of memory
+# Executor ran out of memory
 
 Executor out of memory issues can come from many sources. To narrow down what the cause of the error there are a few important places to look: the Spark Web UI, the executor log, the driver log, and (if applicable) the cluster manager (e.g. YARN/K8s) log/UI.
 
@@ -11,4 +11,4 @@ If the driver log indicates `Container killed by YARN for exceeding memory limit
 PySpark users are the most likely to encounter container OOMs. If you have PySpark UDF in the stage you should check out [Python UDF OOM](../pyudfoom) to eliminate that potential cause. Another potential issue to investigate is if your have [key skew](../key-skew) as trying to load too large a partition in Python can result in an OOM. If you are using a library, like Tensorflow, which results in
 
 
-### Check [Spark Memory Configuration](http://go/spark-memory) to narrow down the specific memory component that is causing the OOM errors. 
+
