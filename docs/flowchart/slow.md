@@ -5,12 +5,12 @@ B[Slow]
 
 B --> SLOWSTAGE[Slow stage]
 
-SHUFFLE --> PARTITIONING[Partitioning]
+SHUFFLE --> SHUFFLEPARTITIONISSUES[Partition issue at the shuffle phase]
 SLOWSTAGE --> SLOWEXEC[Slow executor]
 SLOWSTAGE --> UDFSLOWNESS[Slow UDF]
 UDFSLOWNESS --> PAGGS[Partial aggregates]
-PARTITIONING --> GOODPART_SLOW[Even partitioning]
-PARTITIONING --> UNEVENPART[Uneven/Skewed partitioning]
+SHUFFLEPARTITIONISSUES --> GOODPART_SLOW[Even partitioning]
+SHUFFLEPARTITIONISSUES --> UNEVENPART[Uneven/Skewed partitioning]
 UNEVENPART --> KEYSKEW
 
 GOODPART_SLOW --> TOOMANY[Too many tasks]
@@ -26,7 +26,7 @@ SLOWSTAGE --> SHUFFLE[Exchange/Shuffle/Reducer]
 SLOWSTAGE --> TRANSFORM[Read/Map]
 SLOWSTAGE --> SLOWWRITESTOSTORAGE[Slow writes to storage]
 TRANSFORM --> TOOMUCHDATA
-TRANSFORM --> PARTITIONING
+TRANSFORM --> READPARTITIONISSUES[Partition issue on read]
 TRANSFORM --> LARGERECORDS
 
 TOOMUCHDATA[Reading more data than needed]
@@ -53,7 +53,8 @@ click S3COMMITTER "../../details/slow-writes-s3"
 click TOOMANY "../../details/toomany_tasks"
 click TOOFEW "../../details/toofew_tasks"
 click NOTENOUGHEXEC "../../details/notenoughexecs"
-click PARTITIONING "../../details/partitioning"
+click SHUFFLEPARTITIONISSUES "../../details/shuffle-partition-issue.md"
+click READPARTITIONISSUES "../../details/read-partition-issue.md"
 
 {%
   include-markdown "./shared.md"
