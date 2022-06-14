@@ -38,6 +38,10 @@ SLOWWRITESTOSTORAGE[Slow writes to storage]
 SLOWWRITESTOSTORAGE --> TOOMANYFILES[Slow writes because there are too many files]
 SLOWWRITESTOSTORAGE --> S3COMMITTER[Slow writes on S3 depend on the committer]
 
+READPARTITIONISSUES[Partition issue on read]
+READPARTITIONISSUES --> GOODPART_SLOW[Even partitioning]
+READPARTITIONISSUES --> UNEVENPART[Uneven/Skewed partitioning]
+
 click UNEVENPART "../../details/uneven_partitioning"
 click GOODPART_SLOW "../../details/even_partitioning_still_slow"
 click UDFSLOWNESS "../../details/udfslow"
@@ -53,8 +57,8 @@ click S3COMMITTER "../../details/slow-writes-s3"
 click TOOMANY "../../details/toomany_tasks"
 click TOOFEW "../../details/toofew_tasks"
 click NOTENOUGHEXEC "../../details/notenoughexecs"
-click SHUFFLEPARTITIONISSUES "../../details/shuffle-partition-issue.md"
-click READPARTITIONISSUES "../../details/read-partition-issue.md"
+click SHUFFLEPARTITIONISSUES "../../details/shuffle-partition-issue"
+click READPARTITIONISSUES "../../details/read-partition-issue"
 
 {%
   include-markdown "./shared.md"
