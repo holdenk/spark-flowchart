@@ -13,11 +13,12 @@ MemoryError --> ExecutorMemory[Executor]
 
 DriverMemory -->	DriverMemoryError[Spark driver ran out of memory]
 DriverMemory -->	DriverMaxResultSize[MaxResultSize exceeded]
-
+DriverMemory -->    TooBigBroadcastJoin[Too Big Broadcast Join]
+DriverMemory -->    ContainerOOM[Container Out Of Memory]
 
 ExecutorMemory -->	ExecutorMemoryError[Spark executor ran out of memory]
 ExecutorMemory -->	ExecutorDiskError[Executor out of disk error]
-
+ExecutorMemory -->  ContainerOOM
 
 click Error "../../details/error-job"
 click MemoryError "../../details/error-memory"
@@ -33,6 +34,10 @@ click ExecutorDiskError "../../details/error-executor-out-of-disk"
 click ShuffleError "../../details/error-shuffle"
 click SqlAnalysisError "../../details/error-sql-analysis"
 click OtherError "../../details/error-other"
+
+click ContainerOOM "../../details/container-oom"
+
+click TooBigBroadcastJoin "../../details/big-broadcast-join" "Broadcast Joins"
 
 {%
   include-markdown "./shared.md"
