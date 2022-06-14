@@ -94,7 +94,8 @@ click S3COMMITTER "../../details/slow-writes-s3"
 click TOOMANY "../../details/toomany_tasks"
 click TOOFEW "../../details/toofew_tasks"
 click NOTENOUGHEXEC "../../details/notenoughexecs"
-click PARTITIONING "../../details/partitioning"
+click SHUFFLEPARTITIONISSUES "../../details/shuffle-partition-issue.md"
+click READPARTITIONISSUES "../../details/read-partition-issue.md"
 
 {%
   include-markdown "./shared.md"
