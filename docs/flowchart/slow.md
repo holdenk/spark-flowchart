@@ -31,6 +31,8 @@ SlowMap   --> SkewedMapTasks[Skewed Map Tasks]
 SkewedMapTasks --> RecordSkew[Record Skew]
 SkewedMapTasks --> TaskSkew[Task skew]
 
+RecordSkew --> READPARTITIONISSUES["Read partition issues"]
+
 SlowReduce --> TooFewShuffleTasks[Not Enough Shuffle Tasks]
 SlowReduce --> TooManyShuffleTasks[Too many shuffle tasks]
 SlowReduce --> SkewedShuffleTasks[Skewed Shuffle Tasks]
