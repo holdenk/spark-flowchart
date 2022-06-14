@@ -27,11 +27,10 @@ MissingSourcePredicates --> PredicatePushDown[Predicate Push Down]
 EVENPART_SLOW   --> TooFewMapTasks[Not enough Read/Map Tasks]
 EVENPART_SLOW   --> TooManyMapTasks[Too many Read/Map Tasks]
 EVENPART_SLOW   --> SlowTransformations[Slow Transformations]
-SlowMap   --> SkewedMapTasks[Skewed Map Tasks]
+SlowMap   --> SkewedMapTasks[Skewed Map Tasks and uneven partitioning]
 SkewedMapTasks --> RecordSkew[Record Skew]
 SkewedMapTasks --> TaskSkew[Task skew]
-
-RecordSkew --> READPARTITIONISSUES["Read partition issues"]
+TaskSkew --> READPARTITIONISSUES["Read partition issues"]
 
 SlowReduce --> TooFewShuffleTasks[Not Enough Shuffle Tasks]
 SlowReduce --> TooManyShuffleTasks[Too many shuffle tasks]
