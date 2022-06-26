@@ -17,7 +17,7 @@ limit 100
 ```
 ![Successful-Filter_Pushdown](../imgs/spark-filter-pushdown-success.png)
 
-### Examples when the filter does not get pused down
+### Examples when the filter does not get pushed down
 
 #### The filter contains an expression 
 
