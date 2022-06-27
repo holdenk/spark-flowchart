@@ -8,6 +8,7 @@ SlowJob --> SlowStage[Slow Stage]
 SlowStage --> SlowMap[Slow Read/Map]
 SlowStage --> SlowReduce[Slow Shuffle/Reducer/Exchange]
 SlowJob --> TOOBIGDAG[Too Big DAG]
+SlowJob --> SlowCluster[Slow Cluster]
 
 SlowMap --> SLOWEXEC[Slow executor]
 EVENPART_SLOW --> UDFSLOWNESS[Slow UDF]
@@ -46,7 +47,7 @@ click SlowJob "../../details/slow-job"
 click SlowStage "../../details/slow-stage"
 click SlowMap "../../details/slow-map"
 click SlowReduce "../../details/slow-reduce"
-
+click SlowCluster "../../details/slow-job-slow-cluster"
 
 click MissingSourcePredicates "../../details/slow-map/#reading-more-data-than-needed"
 click PartitionPruning "../../details/slow-map/#reading-more-data-than-needed"
