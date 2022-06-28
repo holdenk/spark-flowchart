@@ -85,9 +85,9 @@ click UDFSLOWNESS "../../details/udfslow"
 
 click PAGGS "../../details/partial_aggregates"
 
-click FILTERNOTPUSHED "../../details/filter_pushdown"
+click FILTERNOTPUSHED "../../details/slow-partition_filter_pushdown"
 click SLOWEXEC "../../details/slow-executor"
-click SLOWSTAGE "../../details/slowstage"
+click SLOWSTAGE "../../details/slow-stage"
 click SLOWWRITESTOSTORAGE "../../details/slow-writes"
 click TOOMANYFILES "../../details/slow-writes-too-many-files"
 click S3COMMITTER "../../details/slow-writes-s3"
@@ -95,7 +95,7 @@ click S3COMMITTER "../../details/slow-writes-s3"
 click TOOMANY "../../details/toomany_tasks"
 click TOOFEW "../../details/toofew_tasks"
 click NOTENOUGHEXEC "../../details/notenoughexecs"
-click SHUFFLEPARTITIONISSUES "../../details/shuffle-partition-issue"
+click SHUFFLEPARTITIONISSUES "../../details/slow-reduce"
 click READPARTITIONISSUES "../../details/read-partition-issue"
 
 {%

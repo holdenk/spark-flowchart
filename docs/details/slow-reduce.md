@@ -1,11 +1,11 @@
-# Slow Reduce
+### Slow Reduce
 
 Below is a list of reasons why your map stage might be slow. Note that this is not an exhaustive list but covers most of the scenarios.
 
-1. [Not Enough Shuffle Tasks](./Not Enough Shuffle Tasks)
-2. [Too many shuffle tasks](./Too many shuffle tasks)
-3. [Skewed Shuffle Tasks](./Skewed Shuffle Tasks)
-4. [Spill To Disk](./Spill-To-Disk)
+1. [Not Enough Shuffle Tasks](../slow-reduce/#not-enough-shuffle-tasks)
+2. [Too many shuffle tasks](../slow-reduce/#too-many-shuffle-tasks)
+3. [Skewed Shuffle Tasks](../slow-reduce/#skewed-shuffle-tasks)
+4. [Spill To Disk](../slow-reduce/#spill-to-disk)
 
 
 
