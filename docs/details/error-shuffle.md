@@ -50,7 +50,7 @@ Error that you normally see in the executor/task logs:
 
 ### Network Timeout
 
-The most likely cause for this exception is a high shuffle activity(high network load) in your job. Reducing the shuffle partitions ```spark.sqlshuffle.partitions``` would mitigate this issue. You can also reduce the network load by modifying the config in [shuffle tuning](https://manuals.netflix.net/view/sparkdocs/mkdocs/master/configuration/#shuffle-tuning).
+The most likely cause for this exception is a high shuffle activity(high network load) in your job. Reducing the shuffle partitions ```spark.sqlshuffle.partitions``` would mitigate this issue. You can also reduce the network load by modifying the shuffle config. (todo: add details)
 
 Error that you normally see in the executor/task logs:
 

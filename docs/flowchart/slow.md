@@ -7,6 +7,8 @@ SlowJob --> SlowStage[Slow Stage]
 
 SlowStage --> SlowMap[Slow Read/Map]
 SlowStage --> SlowReduce[Slow Shuffle/Reducer/Exchange]
+SlowStage --> SLOWWRITESTOSTORAGE[Slow writes to storage]
+
 SlowJob --> TOOBIGDAG[Too Big DAG]
 
 SlowMap --> SLOWEXEC[Slow executor]
@@ -14,7 +16,6 @@ EVENPART_SLOW --> UDFSLOWNESS[Slow UDF]
 SlowReduce --> PAGGS[Partial aggregates]
 SlowMap --> EVENPART_SLOW[Even partitioning]
 
-EVENPART_SLOW --> SLOWWRITESTOSTORAGE[Slow writes to storage]
 EVENPART_SLOW --> TOOMUCHDATA
 EVENPART_SLOW --> LARGERECORDS
 
@@ -38,8 +39,6 @@ SlowReduce --> SkewedShuffleTasks[Skewed Shuffle Tasks]
 SlowReduce --> SpillToDisk[Spill To Disk]
 SkewedShuffleTasks --> SkewedJoin[Skewed Join]
 SkewedShuffleTasks --> SkewedAggregation[Aggregation/Group By]
-SkewedShuffleTasks --> SkewedWrite[Sort/Rapartition/Coalesce before write]
-
 
 
 click SlowJob "../../details/slow-job"
@@ -68,8 +67,6 @@ click SpillToDisk "../../details/slow-reduce/#spill-to-disk"
 
 click SkewedJoin "../../details/slow-skewed-join"
 click SkewedAggregation "../../details/slow-reduce/#skewed-shuffle-tasks"
-click SkewedWrite "../../details/slow-skewed-write"
-
 
 TOOMUCHDATA[Reading more data than needed]
 TOOMUCHDATA --> FILTERNOTPUSHED[Filter not pushed down]
@@ -78,6 +75,7 @@ TOOMUCHDATA --> STORAGE_PARTITIONING[Bad storage partitioning]
 
 SLOWWRITESTOSTORAGE[Slow writes to storage]
 SLOWWRITESTOSTORAGE --> TOOMANYFILES[Slow writes because there are too many files]
+SLOWWRITESTOSTORAGE --> SkewedWrite[Skewed Write: when to use Sort/Repartition/Coalesce before write]
 SLOWWRITESTOSTORAGE --> S3COMMITTER[Slow writes on S3 depend on the committer]
 
 click EVENPART_SLOW "../../details/even_partitioning_still_slow"
@@ -89,6 +87,7 @@ click FILTERNOTPUSHED "../../details/slow-partition_filter_pushdown"
 click SLOWEXEC "../../details/slow-executor"
 click SLOWSTAGE "../../details/slow-stage"
 click SLOWWRITESTOSTORAGE "../../details/slow-writes"
+click SkewedWrite "../../details/slow-skewed-write"
 click TOOMANYFILES "../../details/slow-writes-too-many-files"
 click S3COMMITTER "../../details/slow-writes-s3"
 
