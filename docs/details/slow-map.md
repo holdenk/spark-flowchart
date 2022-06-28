@@ -16,7 +16,7 @@ Below is a list of reasons why your map stage might be slow. Note that this is n
 Iceberg/Parquet provides 3 layers of data pruning/filtering, so it is recommended to make the most of it by utilizing them as upstream in your ETL as possible.
 
 * Partition Pruning : Applying a filter on a partition column would mean the Spark can prune all the partitions that are not needed (ex: utc_date, utc_hour etc.). Refer to [this](./slow-partition_filter_pushdown.md) section for some examples.
-* Column Pruning : Most of our DW tables are in parquet which is a columnar format which allows us to read specific columns from a row group without having to read the entire row. By selecting the fields that you only need for your job/sql(instead of "select *"), you can avoid bringing unnecessary data only to drop it in the subsequent stages.
+* Column Pruning : Parquet, a columnar format, allows us to read specific columns from a row group without having to read the entire row. By selecting the fields that you only need for your job/sql(instead of "select *"), you can avoid bringing unnecessary data only to drop it in the subsequent stages.
 * Predicate Push Down: It is also recommended to use filters on non-partition columns as this would allow Spark to exclude specific row groups while reading data from S3. For ex: ```account_id is not null``` if you know that you would be dropping the NULL account_ids eventually.
 
 
