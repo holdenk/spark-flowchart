@@ -3,11 +3,11 @@
 
 Below is a list of reasons why your map stage might be slow. Note that this is not an exhaustive list but covers most of the scenarios.
 
-1. [Reading more data than needed](./Reading-more-data-than-needed)
-2. [Not enough Read/Map Tasks](./Not-enough-Read/Map-Tasks)
-3. [Too many Read/Map Tasks](./Too-many-Read/Map-Tasks)
-4. [Slow Transformations](./Slow-Transformations)
-5. [Skewed Map Tasks](./Skewed-Map-Tasks)
+1. [Reading more data than needed](../slow-map/#reading-more-data-than-needed)
+2. [Not enough Read/Map Tasks](../slow-map/#not-enough-read/map-tasks)
+3. [Too many Read/Map Tasks](../slow-map/#too-many-read/map-tasks)
+4. [Slow Transformations](../slow-map/#slow-transformations)
+5. [Skewed Map Tasks](../slow-map/#skewed-map-tasks-or-uneven-partitioning)
 
 
 
@@ -41,7 +41,7 @@ Another reason for slow running map tasks could be from many reason, some common
 All these transformations may run into skew issues if you have a [single row/column that is bloated.]() You could prevent this by checking the payload size before calling the transformation as a single row/column could potentially slow down the entire stage.
 
 
-### Skewed Map Tasks / Uneven partitioning
+### Skewed Map Tasks or Uneven partitioning
 
 The most common (and most difficult to fix) bad partitioning in Spark is that of skewed partitioning. The data is not evenly distributed amongst the partitions.
 
