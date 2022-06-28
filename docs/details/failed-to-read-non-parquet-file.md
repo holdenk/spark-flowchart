@@ -4,4 +4,4 @@ Iceberg does not perform validation on the files specified, so it will let you c
 
 
 
-If the data is stored in a supported format, it is also possible you have an invalid iceberg table, see [invalid-file](../invalid-file)
+If the data is stored in a supported format, it is also possible you have an invalid iceberg table.
