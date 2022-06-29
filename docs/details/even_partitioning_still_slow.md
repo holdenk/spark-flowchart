@@ -10,3 +10,5 @@ If the data is evenly partitioned but the max task duration is longer than desir
 
 
 Another cause of too large partitioning can be non-splittable compression formats, like gzip, that can be worked around with tools like [splittablegzip](https://github.com/nielsbasjes/splittablegzip).
+
+Finally consider the possibility the [records are too large.](../../details/failure-executor-large-record)
