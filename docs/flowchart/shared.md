@@ -4,7 +4,7 @@ graph TD
 
 LARGERECORDS[Too large individual records]
 
-click LARGERECORDS "../details/failure-executor-large-record"
+click LARGERECORDS "../../details/failure-executor-large-record"
 
 
 OHNOES[Contact support]
