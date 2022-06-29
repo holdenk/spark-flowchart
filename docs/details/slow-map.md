@@ -17,7 +17,6 @@ EVENPART_SLOW   --> TooFewMapTasks[Not enough Read/Map Tasks]
 EVENPART_SLOW   --> TooManyMapTasks[Too many Read/Map Tasks]
 EVENPART_SLOW   --> SlowTransformations[Slow Transformations]
 EVENPART_SLOW   --> UDFSLOWNESS[Slow UDF]
-EVENPART_SLOW   --> LARGERECORDS[Large records]
 
 SkewedMapTasks --> RecordSkew[Record Skew]
 SkewedMapTasks --> TaskSkew[Task skew]
@@ -26,9 +25,9 @@ MissingSourcePredicates --> FILTERNOTPUSHED[Filter not pushed]
 
 click EVENPART_SLOW "../../details/even_partitioning_still_slow"
 click SLOWEXEC "../../details/slow-executor"
-click SkewedMapTasks "../../details/slow-map/#skewed-map-tasks"
-click RecordSkew "../../details/slow-map/#skewed-map-tasks"
-click TaskSkew "../../details/slow-map/#skewed-map-tasks"
+click SkewedMapTasks "../../details/slow-map/#skewed-map-tasks-or-uneven-partitioning"
+click RecordSkew "../../details/slow-map/#skewed-map-tasks-or-uneven-partitioning"
+click TaskSkew "../../details/slow-map/#skewed-map-tasks-or-uneven-partitioning"
 click MissingSourcePredicates "../../details/slow-map/#reading-more-data-than-needed"
 
 click UDFSLOWNESS "../../details/udfslow"
@@ -40,14 +39,7 @@ click SlowTransformations "../../details/slow-map/#slow-transformations"
 
 click FILTERNOTPUSHED "../../details/slow-partition_filter_pushdown"
 click SLOWEXEC "../../details/slow-executor"
-click LARGERECORDS "../../details/failure-executor-large-record"
-
-{%
-  include-markdown "../flowchart/shared.md"
-  start="graph TD"
-  end="OHNOES[Contact support]"
-  comments=false
-%}
+click READPARTITIONISSUES "../../details/read-partition-issue"
 
 ```
 
