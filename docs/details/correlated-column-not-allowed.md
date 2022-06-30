@@ -1,4 +1,4 @@
-# org.apache.spark.sql.AnalysisException: Correlated column is not allowed in predicate
+# spark.sql.AnalysisException: Correlated column is not allowed in predicate
 
 SPARK-35080 introduces a check for correlated subqueries with aggregates which may have previously return incorect results.
 Instead, starting in Spark 2.4.8, these queries will raise an `org.apache.spark.sql.AnalysisException` exception.

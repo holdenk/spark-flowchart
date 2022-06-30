@@ -12,4 +12,4 @@ Kubernetes users may wish to add a large `emptyDir` for Spark to use for tempora
 Another common cause is having no longer needed/used RDDs/DataFrames/Datasets in scope. This tends to happen more often with notebooks as more things are placed in the global scope where they are not automatically cleaned up. A solution to this is breaking your code into more functions so that things go out of scope, or explicitily setting no longer needed RDDs/DataFrames/Datasets to None/null.
 
 
-On the other hand if you have an iterative algorithm you should investigate [../toobigdag](if you may have too big of a DAG).
+On the other hand if you have an iterative algorithm you should investigate [if you may have to big of a DAG.](./toobigdag.md)

@@ -5,3 +5,7 @@ if you are reading from a table with too many splits(s3 files) and overwhelming 
 
 
 
+Another cause for driver out of memory errors is when the number of partitions is too high and you trigger a `sort` or `shuffle` where Spark samples the data, but then runs out of memory while collecting the sample. To solve this `repartition` to a lower number of partitions or if you're in RDDs `coalesce` is a more efficent option (in DataFrames coalesce can have impact upstream in the query plan).
+
+
+
