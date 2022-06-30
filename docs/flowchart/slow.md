@@ -26,6 +26,8 @@ click SlowJob "../../details/slow-job"
 click SlowStage "../../details/slow-stage"
 click SlowMap "../../details/slow-map"
 click SlowReduce "../../details/slow-reduce"
+click SlowCluster "../../details/slow-job-slow-cluster"
+click TOOBIGDAG "../../details/toobigdag"
 
 click TooFewShuffleTasks "../../details/slow-reduce/#not-enough-shuffle-tasks"
 click TooManyShuffleTasks "../../details/slow-reduce/#too-many-shuffle-tasks"
