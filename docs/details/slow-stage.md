@@ -71,7 +71,7 @@ createStageMetricsView("SLOW_EVENTS", "SLOW_STAGE_METRICS")
 
 Steps: 
 
-1. Navigate to Spark UI using spark history URL(found in genie stderr)
+1. Navigate to Spark UI using spark history URL
 2. Click on `Stages` and sort the stages(click on `Duration`) in descending order to find the longest running stage.
 
  ![IdentifySlowStage](../imgs/identify-slow-stage.png)
