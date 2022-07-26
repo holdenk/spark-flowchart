@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Partition Filters - Spark Advanced Topics</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Spark Advanced Topics</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Spark Advanced Topics Working Group Documentation</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Details <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../best-pratice-collect/" class="dropdown-item">Bringing too much data back to the driver (collect and friends)</a>
+</li>
+                                    
+<li>
+    <a href="../big-broadcast-join/" class="dropdown-item">Too big broadcast joins</a>
+</li>
+                                    
+<li>
+    <a href="../broadcast-with-disable/" class="dropdown-item">Tables getting broadcasted even when broadcast is disabled</a>
+</li>
+                                    
+<li>
+    <a href="../class-or-method-not-found/" class="dropdown-item">Class or method not found</a>
+</li>
+                                    
+<li>
+    <a href="../container-oom/" class="dropdown-item">Container OOMs</a>
+</li>
+                                    
+<li>
+    <a href="../correlated-column-not-allowed/" class="dropdown-item">spark.sql.AnalysisException: Correlated column is not allowed in predicate</a>
+</li>
+                                    
+<li>
+    <a href="../driver-max-result-size/" class="dropdown-item">Result size larger than spark.driver.maxResultSize error</a>
+</li>
+                                    
+<li>
+    <a href="../error-driver-max-result-size/" class="dropdown-item">Result size larger than spark.driver.maxResultsSize error</a>
+</li>
+                                    
+<li>
+    <a href="../error-driver-out-of-memory/" class="dropdown-item">Error driver out of memory</a>
+</li>
+                                    
+<li>
+    <a href="../error-driver-stack-overflow/" class="dropdown-item">Error driver stack overflow</a>
+</li>
+                                    
+<li>
+    <a href="../error-executor-out-of-disk/" class="dropdown-item">Executor out of disk error</a>
+</li>
+                                    
+<li>
+    <a href="../error-executor-out-of-memory/" class="dropdown-item">Executor ran out of memory</a>
+</li>
+                                    
+<li>
+    <a href="../error-invalid-file/" class="dropdown-item">Missing Files / File Not Found / Reading past RLE/BitPacking stream</a>
+</li>
+                                    
+<li>
+    <a href="../error-job/" class="dropdown-item">Error</a>
+</li>
+                                    
+<li>
+    <a href="../error-memory/" class="dropdown-item">Memory Errors</a>
+</li>
+                                    
+<li>
+    <a href="../error-other/" class="dropdown-item">Other errors</a>
+</li>
+                                    
+<li>
+    <a href="../error-shuffle/" class="dropdown-item">Fetch Failed exceptions</a>
+</li>
+                                    
+<li>
+    <a href="../error-sql-analysis/" class="dropdown-item">spark.sql.AnalysisException</a>
+</li>
+                                    
+<li>
+    <a href="../even_partitioning_still_slow/" class="dropdown-item">Even Partitioning Yet Still Slow</a>
+</li>
+                                    
+<li>
+    <a href="../failed-to-read-non-parquet-file/" class="dropdown-item">Failed to read non-parquet file</a>
+</li>
+                                    
+<li>
+    <a href="../failure-executor-large-record/" class="dropdown-item">Large record problems can show up in a few different ways.</a>
+</li>
+                                    
+<li>
+    <a href="../forced-computations/" class="dropdown-item">Force computations</a>
+</li>
+                                    
+<li>
+    <a href="../key-skew/" class="dropdown-item">Key/Partition Skew</a>
+</li>
+                                    
+<li>
+    <a href="../notenoughexecs/" class="dropdown-item">Notenoughexecs</a>
+</li>
+                                    
+<li>
+    <a href="../partial_aggregates/" class="dropdown-item">Partial v.s. Full Aggregates</a>
+</li>
+                                    
+<li>
+    <a href="../pyudfoom/" class="dropdown-item">PySpark UDF / UDAF OOM</a>
+</li>
+                                    
+<li>
+    <a href="../read-partition-issue/" class="dropdown-item">Partition at read time</a>
+</li>
+                                    
+<li>
+    <a href="../revise-bad_partitioning/" class="dropdown-item">Bad Partitioning</a>
+</li>
+                                    
+<li>
+    <a href="../revise-even_partitioning_still_slow/" class="dropdown-item">Even Partitioning Yet Still Slow</a>
+</li>
+                                    
+<li>
+    <a href="../slow-executor/" class="dropdown-item">Slow executor</a>
+</li>
+                                    
+<li>
+    <a href="../slow-job-slow-cluster/" class="dropdown-item">Slow job slow cluster</a>
+</li>
+                                    
+<li>
+    <a href="../slow-job/" class="dropdown-item">Slow job</a>
+</li>
+                                    
+<li>
+    <a href="../slow-map/" class="dropdown-item">Slow Map</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Partition Filters</a>
+</li>
+                                    
+<li>
+    <a href="../slow-reduce/" class="dropdown-item">Slow reduce</a>
+</li>
+                                    
+<li>
+    <a href="../slow-regex-tips/" class="dropdown-item">Regular Expression Tips</a>
+</li>
+                                    
+<li>
+    <a href="../slow-skewed-join/" class="dropdown-item">Skewed Joins</a>
+</li>
+                                    
+<li>
+    <a href="../slow-skewed-write/" class="dropdown-item">Skewed/Slow Write</a>
+</li>
+                                    
+<li>
+    <a href="../slow-stage/" class="dropdown-item">Identify the slow stage</a>
+</li>
+                                    
+<li>
+    <a href="../slow-writes-s3/" class="dropdown-item">Slow writes on S3</a>
+</li>
+                                    
+<li>
+    <a href="../slow-writes-too-many-files/" class="dropdown-item">Slow writes due to Too many small files</a>
+</li>
+                                    
+<li>
+    <a href="../slow-writes/" class="dropdown-item">Slow Writes</a>
+</li>
+                                    
+<li>
+    <a href="../toobigdag/" class="dropdown-item">Too Big DAG (or when iterative algorithms go bump in the night)</a>
+</li>
+                                    
+<li>
+    <a href="../toofew_tasks/" class="dropdown-item">Toofew tasks</a>
+</li>
+                                    
+<li>
+    <a href="../toomany_tasks/" class="dropdown-item">Toomany tasks</a>
+</li>
+                                    
+<li>
+    <a href="../udfslow/" class="dropdown-item">Avoid UDFs for the most part</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Flowchart <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../flowchart/" class="dropdown-item">Index</a>
+</li>
+                                    
+<li>
+    <a href="../../flowchart/error/" class="dropdown-item">Error</a>
+</li>
+                                    
+<li>
+    <a href="../../flowchart/shared/" class="dropdown-item">Shared</a>
+</li>
+                                    
+<li>
+    <a href="../../flowchart/slow/" class="dropdown-item">Slow</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../slow-map/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../slow-reduce/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#partition-filters" class="nav-link">Partition Filters</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="partition-filters">Partition Filters</h1>
+<p>Processing more data than necessary will typically slow down the job. 
+If the input table is partitioned then applying filters on the partition columns can restrict the input volume Spark
+ needs
+ to scan.</p>
+<p>A simple equality filter gets pushed down to the batch scan and enables Spark to only scan the files 
+where <code>dateint = 20211101</code> of a sample table partitioned on <code>dateint</code> and <code>hour</code>.</p>
+<p><div class="highlight"><pre><span></span><code>select *
+from jlantos.sample_table
+where dateint = 20211101
+limit 100
+</code></pre></div>
+<img alt="Successful-Filter_Pushdown" src="../../imgs/spark-filter-pushdown-success.png" /></p>
+<h3 id="examples-when-the-filter-does-not-get-pushed-down">Examples when the filter does not get pushed down</h3>
+<h4 id="the-filter-contains-an-expression">The filter contains an expression</h4>
+<p>If instead of a particular date we'd like to load data from the 1st of any month we might
+ rewrite the above query such as:</p>
+<div class="highlight"><pre><span></span><code>select *
+from jlantos.sample_table
+where dateint % 100 = 1
+limit 100
+</code></pre></div>
+<p>The query plan shows that Spark in this case scans the whole table and filters only in a later step.</p>
+<p><img alt="Successful-Filter_Pushdown" src="../../imgs/spark-filter-ignored.png" /></p>
+<h3 id="filter-is-dynamic-via-a-join">Filter is dynamic via a join</h3>
+<p>In a more complex job we might restrict the data based on joining to another table. If the filtering criteria is not
+ static it won't be pushed down to the scan. So in the example below the two table scans happen independently, and
+  <code>min(dateint)</code> calculated in the CTE won't have an effect on the second scan.</p>
+<div class="highlight"><pre><span></span><code>with dates as
+  (select min(dateint) dateint
+   from jlantos.sample_table)
+
+select *
+from jlantos.sample_table st
+join dates d on st.dateint = d.dateint
+</code></pre></div></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright various authors 2022, CC-BY-SA 4.0</p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

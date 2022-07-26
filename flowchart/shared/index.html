@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../../img/favicon.ico" rel="shortcut icon"/>
+<title>Shared - Spark Advanced Topics</title>
+<link href="../../css/bootstrap.min.css" rel="stylesheet"/>
+<link href="../../css/font-awesome.min.css" rel="stylesheet"/>
+<link href="../../css/base.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" rel="stylesheet"/>
+<script defer="" src="../../js/jquery-1.10.2.min.js"></script>
+<script defer="" src="../../js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+<div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+<div class="container">
+<a class="navbar-brand" href="../..">Spark Advanced Topics</a>
+<!-- Expander button -->
+<button class="navbar-toggler" data-target="#navbar-collapse" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<!-- Expanded navigation -->
+<div class="navbar-collapse collapse" id="navbar-collapse">
+<!-- Main navigation -->
+<ul class="nav navbar-nav">
+<li class="navitem">
+<a class="nav-link" href="../..">Spark Advanced Topics Working Group Documentation</a>
+</li>
+<li class="dropdown">
+<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Details <b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li>
+<a class="dropdown-item" href="../../details/best-pratice-collect/">Bringing too much data back to the driver (collect and friends)</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/big-broadcast-join/">Too big broadcast joins</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/broadcast-with-disable/">Tables getting broadcasted even when broadcast is disabled</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/class-or-method-not-found/">Class or method not found</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/container-oom/">Container OOMs</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/correlated-column-not-allowed/">spark.sql.AnalysisException: Correlated column is not allowed in predicate</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/driver-max-result-size/">Result size larger than spark.driver.maxResultSize error</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/error-driver-max-result-size/">Result size larger than spark.driver.maxResultsSize error</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/error-driver-out-of-memory/">Error driver out of memory</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/error-driver-stack-overflow/">Error driver stack overflow</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/error-executor-out-of-disk/">Executor out of disk error</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/error-executor-out-of-memory/">Executor ran out of memory</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/error-invalid-file/">Missing Files / File Not Found / Reading past RLE/BitPacking stream</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/error-job/">Error</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/error-memory/">Memory Errors</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/error-other/">Other errors</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/error-shuffle/">Fetch Failed exceptions</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/error-sql-analysis/">spark.sql.AnalysisException</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/even_partitioning_still_slow/">Even Partitioning Yet Still Slow</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/failed-to-read-non-parquet-file/">Failed to read non-parquet file</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/failure-executor-large-record/">Large record problems can show up in a few different ways.</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/forced-computations/">Force computations</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/key-skew/">Key/Partition Skew</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/notenoughexecs/">Notenoughexecs</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/partial_aggregates/">Partial v.s. Full Aggregates</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/pyudfoom/">PySpark UDF / UDAF OOM</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/read-partition-issue/">Partition at read time</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/revise-bad_partitioning/">Bad Partitioning</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/revise-even_partitioning_still_slow/">Even Partitioning Yet Still Slow</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/slow-executor/">Slow executor</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/slow-job-slow-cluster/">Slow job slow cluster</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/slow-job/">Slow job</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/slow-map/">Slow Map</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/slow-partition_filter_pushdown/">Partition Filters</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/slow-reduce/">Slow reduce</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/slow-regex-tips/">Regular Expression Tips</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/slow-skewed-join/">Skewed Joins</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/slow-skewed-write/">Skewed/Slow Write</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/slow-stage/">Identify the slow stage</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/slow-writes-s3/">Slow writes on S3</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/slow-writes-too-many-files/">Slow writes due to Too many small files</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/slow-writes/">Slow Writes</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/toobigdag/">Too Big DAG (or when iterative algorithms go bump in the night)</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/toofew_tasks/">Toofew tasks</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/toomany_tasks/">Toomany tasks</a>
+</li>
+<li>
+<a class="dropdown-item" href="../../details/udfslow/">Avoid UDFs for the most part</a>
+</li>
+</ul>
+</li>
+<li class="dropdown active">
+<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Flowchart <b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li>
+<a class="dropdown-item" href="../">Index</a>
+</li>
+<li>
+<a class="dropdown-item" href="../error/">Error</a>
+</li>
+<li>
+<a class="dropdown-item active" href="./">Shared</a>
+</li>
+<li>
+<a class="dropdown-item" href="../slow/">Slow</a>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="nav navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" data-target="#mkdocs_search_modal" data-toggle="modal" href="#">
+<i class="fa fa-search"></i> Search
+                            </a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../error/" rel="prev">
+<i class="fa fa-arrow-left"></i> Previous
+                                </a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../slow/" rel="next">
+                                    Next <i class="fa fa-arrow-right"></i>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+<div class="navbar-header">
+<button class="navbar-toggler collapsed" data-target="#toc-collapse" data-toggle="collapse" title="Table of Contents" type="button">
+<span class="fa fa-angle-down"></span>
+</button>
+</div>
+<div class="navbar-collapse collapse card bg-secondary" id="toc-collapse">
+<ul class="nav flex-column">
+</ul>
+</div>
+</div></div>
+<div class="col-md-9" role="main">
+<div class="mermaid">graph TD
+
+
+OHNOES[Contact support]
+</div>
+<!-- two lines up is a special cell which ends the import into the "root" graph.--></div>
+</div>
+</div>
+<footer class="col-md-12">
+<hr/>
+<p>Copyright various authors 2022, CC-BY-SA 4.0</p>
+<p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+</footer>
+<script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+<script defer="" src="../../js/base.js"></script>
+<script defer="" src="../../search/main.js"></script>
+<div aria-hidden="true" aria-labelledby="searchModalLabel" class="modal" id="mkdocs_search_modal" role="dialog" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="searchModalLabel">Search</h4>
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+</div>
+<div class="modal-body">
+<p>From here you can search these documents. Enter your search terms below.</p>
+<form>
+<div class="form-group">
+<input class="form-control" id="mkdocs-search-query" placeholder="Search..." title="Type search term here" type="search"/>
+</div>
+</form>
+<div data-no-results-text="No results found" id="mkdocs-search-results"></div>
+</div>
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div><div aria-hidden="true" aria-labelledby="keyboardModalLabel" class="modal" id="mkdocs_keyboard_modal" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+<button class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+</div>
+<div class="modal-body">
+<table class="table">
+<thead>
+<tr>
+<th style="width: 20%;">Keys</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="help shortcut"><kbd>?</kbd></td>
+<td>Open this help</td>
+</tr>
+<tr>
+<td class="next shortcut"><kbd>n</kbd></td>
+<td>Next page</td>
+</tr>
+<tr>
+<td class="prev shortcut"><kbd>p</kbd></td>
+<td>Previous page</td>
+</tr>
+<tr>
+<td class="search shortcut"><kbd>s</kbd></td>
+<td>Search</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="modal-footer">
+</div>
+</div>
+</div>
+</div>
+<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({
+    securityLevel: "loose"
+});</script></body>
+</html>
