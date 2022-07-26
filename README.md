@@ -3,6 +3,7 @@
 Welcome to the Spark Advanced Topics Working Group!
 
 ## Viewing the docs hosted 
+
 Click [here](https://holdenk.github.io/spark-flowchart/flowchart/)
 
 ## Viewing the docs locally
