@@ -12,6 +12,8 @@ First, make sure you have the requirements `pip install -r requirements.txt` the
 
 If you have difficulty running `mkdocs serve` you may need to place your local pip path ahead of the other elements so that version of mkdocs takes precedence (e.g. for me `export PATH=~/.local/bin/:$PATH`).
 
+Video instructions [here](https://www.loom.com/share/51ebc97640254f09a467de0c998d99ad).
+
 ## Contributing
 
 Yay! We are so excited you want to contribute! Pull requests are welcome.
