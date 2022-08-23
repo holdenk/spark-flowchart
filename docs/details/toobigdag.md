@@ -1,10 +1,11 @@
 # Too Big DAG (or when iterative algorithms go bump in the night)
 
-Spark uses lazy evaluation and creates a DAG (directed acyclic graph) of the operations needed to compute a peice of data. Even if the data is persisted or cached, Spark will keep this DAG in memory on the driver so that if an executor fails it can re-create this data later. This is more likely to cause problems with iterative algorithms that create RDDs or DataFrames on each iteration based on the previous iteration, like ALS. Some signs of a DAG getting too big are:
+Spark uses lazy evaluation and creates a DAG (directed acyclic graph) of the operations needed to compute a piece of data. Even if the data is persisted or cached, Spark will keep this DAG in memory on the driver so that if an executor fails it can re-create this data later. This is more likely to cause problems with iterative algorithms that create RDDs or DataFrames on each iteration based on the previous iteration, like ALS. Some signs of a DAG getting too big are:
 
 - Iterative algorithm becoming slower on each iteration
 - Driver OOM
 - Executor out-of-disk-error
+- Stack overflow error
 
 
 If your job hasn't crashed, an easy way to check is by looking at the Spark Web UI and seeing what the DAG visualization looks like. If the DAG takes a measurable length of time to load (minutes), or fills a few screens it's likely "too-big." Just because a DAG "looks" small though doesn't mean that it isn't necessarily an issue, medium-sized-looking DAGs with lots of shuffle files can cause executor out of disk issues too.

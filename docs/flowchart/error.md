@@ -5,6 +5,7 @@ Error[Error/Exception]
 
 Error --> MemoryError[Memory Error]
 Error --> ShuffleError[Shuffle Error]
+Error --> StackOverflowError[Stack Overflow]
 Error --> SqlAnalysisError[sql.AnalysisException]
 Error --> OtherError[Others]
 
@@ -20,6 +21,8 @@ ExecutorMemory -->	ExecutorMemoryError[Spark executor ran out of memory]
 ExecutorMemory -->	ExecutorDiskError[Executor out of disk error]
 ExecutorMemory -->  ContainerOOM
 ExecutorMemory -->  LARGERECORDS[Too large record]
+
+StackOverflowError --> TOOBIGDAG[Too Big DAG]
 
 click Error "../../details/error-job"
 click MemoryError "../../details/error-memory"
@@ -39,7 +42,7 @@ click OtherError "../../details/error-other"
 click ContainerOOM "../../details/container-oom"
 click TooBigBroadcastJoin "../../details/big-broadcast-join" "Broadcast Joins"
 click LARGERECORDS "../../details/failure-executor-large-record"
-
+click TOOBIGDAG "../../details/toobigdag"
 
 
 
