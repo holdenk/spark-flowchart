@@ -6,6 +6,7 @@ Error[Error/Exception]
 Error --> MemoryError[Memory Error]
 Error --> ShuffleError[Shuffle Error]
 Error --> SqlAnalysisError[sql.AnalysisException]
+Error --> WriteFails[WriteFails]
 Error --> OtherError[Others]
 
 MemoryError --> DriverMemory[Driver]
@@ -40,7 +41,7 @@ click ContainerOOM "../../details/container-oom"
 click TooBigBroadcastJoin "../../details/big-broadcast-join" "Broadcast Joins"
 click LARGERECORDS "../../details/failure-executor-large-record"
 
-
+click WriteFails "../../details/write-fails"
 
 
 {%
