@@ -9,6 +9,12 @@ Error --> SqlAnalysisError[sql.AnalysisException]
 Error --> WriteFails[WriteFails]
 Error --> OtherError[Others]
 
+Error --> Serialization
+Serialization --> KyroBuffer[Kyro Buffer Overflow]
+
+KyroBuffer --> DriverMaxResultSize
+
+
 MemoryError --> DriverMemory[Driver]
 MemoryError --> ExecutorMemory[Executor]
 
@@ -16,6 +22,8 @@ DriverMemory -->	DriverMemoryError[Spark driver ran out of memory]
 DriverMemory -->	DriverMaxResultSize[MaxResultSize exceeded]
 DriverMemory -->    TooBigBroadcastJoin[Too Big Broadcast Join]
 DriverMemory -->    ContainerOOM[Container Out Of Memory]
+
+DriverMaxResultSize --> TooBigBroadcastJoin
 
 ExecutorMemory -->	ExecutorMemoryError[Spark executor ran out of memory]
 ExecutorMemory -->	ExecutorDiskError[Executor out of disk error]

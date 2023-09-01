@@ -1,4 +1,4 @@
-# Result size larger than spark.driver.maxResultSize error
+# Result size larger than spark.driver.maxResultSize error OR Kryo serialization failed: Buffer overflow.
 
 
 
@@ -11,3 +11,6 @@ You typically run into this error for one of the following reasons.
 3. You have a `sort` in your SQL/Dataframe: Spark internally uses range-partitioning to assign sort keys to a partition range. This involves in collecting sample rows(reservoir sampling) from input partitions and sending them to the driver for computing range boundaries. This error can further fall into one of the below scenarios.
    a. You have wide/bloated rows in your table: In this case, you are not sending a lot of rows to the driver, but you are sending bytes larger than the `spark.driver.maxResultSize`. The recommendation here is to lower the default sample size by setting the spark property `spark.sql.execution.rangeExchange.sampleSizePerPartition` to something lower than 20. You can also increase `spark.driver.maxResultSize` if lowering the sample size is causing an imbalance in partition ranges(for ex: skew in a sub-sequent stage or non-uniform output files etc..). If using the later option, be sure `spark.driver.maxResultSize` is less than `spark.driver.memory`.
    b. You have too many Spark partitions from the previous stage: In this case, you have a large number of map tasks while reading from a table. Since spark has to collect sample rows from every partition, your total bytes from the number of rows(partitions*sampleSize) could be larger than `spark.driver.maxResultSize`. A recommended way to resolve this issue is by combining the splits for the table(increase `spark.(path).(db).(table).target-size`) with high map tasks. Note that having a large number of map tasks(>80k) will cause other OOM issues on driver as it needs to keep track of metadata for all these tasks/partitions.
+
+External resources:
+- [Apache Spark job fails with maxResultSize exception](https://kb.databricks.com/jobs/job-fails-maxresultsize-exception#:~:text=This%20error%20occurs%20because%20the,the%20driver%20local%20file%20system)
