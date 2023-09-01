@@ -28,7 +28,7 @@ DriverMaxResultSize --> TooBigBroadcastJoin
 ExecutorMemory -->	ExecutorMemoryError[Spark executor ran out of memory]
 ExecutorMemory -->	ExecutorDiskError[Executor out of disk error]
 ExecutorMemory -->  ContainerOOM
-ExecutorMemory -->  LARGERECORDS[Too large record]
+ExecutorMemory -->  LARGERECORDS[Too large record / column+record]
 
 click Error "../../details/error-job"
 click MemoryError "../../details/error-memory"
