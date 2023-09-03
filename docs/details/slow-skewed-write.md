@@ -16,7 +16,7 @@ Use global `sort`
 
 Tips:
 1. You can increase the spark property `spark.sql.execution.rangeExchange.sampleSizePerPartition` to improve the estimates if you are not seeing optimal no. of files per partition.
-2. You can also introduce `salt` to sort keys to increase the no. of write tasks if the sort keys cardinality less than the `spark.sql.shuffle.partitions`. [Example](https://stash.corp.netflix.com/projects/SDE/repos/cdn-analytics/browse/src/main/scala/dea/cdn/spark/jobs/CdnAtlasPipeline.scala#112)
+2. You can also introduce `salt` to sort keys to increase the no. of write tasks if the sort keys cardinality less than the `spark.sql.shuffle.partitions`.
 
 
 ### When to use Repartition
