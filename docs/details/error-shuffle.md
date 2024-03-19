@@ -4,7 +4,7 @@
 
 FetchFailed exceptions are mainly due to misconfiguration of ```spark.sql.shuffle.partitions```:
 
-1. Too few shuffle partitions: Having too few shuffle partitions means you could have a shuffle block that is larger than the limit(Integer.MaxValue=~2GB) or OOM(Exit code 143). The symptom for this can also be long-running tasks where the blocks are large but not reached the limit. A quick fix is to increase the shuffle/reducer parallelism by increasing ```spark.sqlshuffle.partitions```(default is 500).
+1. Too few shuffle partitions: Having too few shuffle partitions means you could have a shuffle block that is larger than the limit(Integer.MaxValue=~2GB) or OOM(Exit code 143). The symptom for this can also be long-running tasks where the blocks are large but not reached the limit. A quick fix is to increase the shuffle/reducer parallelism by increasing ```spark.sql.shuffle.partitions```(default is 500).
 2. Too many shuffle partitions: Too many shuffle partitions could put a stress on the shuffle service and could run into errors like ```network timeout``` ```. Note that the shuffle service is a shared service for all the jobs running on the cluster so it is possible that someone else's job with high shuffle activity could cause errors for your job. It is worth checking to see if there is a pattern of these failures for your job to confirm if it is an issue with your job or not. Also note that the higher the shuffle partitions, the more likely that you would see this issue.
 
 
