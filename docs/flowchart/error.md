@@ -56,7 +56,6 @@ click WriteFails "../../details/write-fails"
 
 {%
   include-markdown "./shared.md"
-  start="graph TD"
   end="OHNOES[Contact support]"
   comments=false
 %}

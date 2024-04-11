@@ -63,7 +63,6 @@ click READPARTITIONISSUES "../../details/read-partition-issue"
 
 {%
   include-markdown "./shared.md"
-  start="graph TD"
   end="OHNOES[Contact support]"
   comments=false
 %}
