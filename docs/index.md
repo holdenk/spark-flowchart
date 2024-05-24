@@ -8,3 +8,5 @@ The documentation is collected under "details" (see above).
 ## Other resources
 
 Some other resources that may be useful include [High Performance Spark](https://amzn.to/3bgGdr7) by Holden Karau and Rachel Warren (note: some bias as a co-author), as well as the excellent on-line [The Internals of Apache Spark](https://books.japila.pl/apache-spark-internals/) and [The Internals of Spark SQL](https://books.japila.pl/spark-sql-internals/) by Jacek Laskowski.
+
+For guidance on handling data quality issues, including unexpected null values in columns, see the [Data Quality Issues Flowchart](flowchart/dataquality.md).
